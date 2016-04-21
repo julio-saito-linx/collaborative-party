@@ -18,7 +18,7 @@ controller.addModules({
     '/': 'example.redirectRoot',
     '/:color': 'example.colorChanged',
   }, {
-    onlyHash: true,
+    onlyHash: false,
   }),
 });
 
@@ -27,7 +27,9 @@ function onToggleClick() {
 }
 
 ReactDOM.render(<div>
-  <Toggle onToggle={onToggleClick}>Toggle</Toggle>
-  <Container controller={controller}><ColorChanger /></Container>
+  <Container controller={controller}>
+    <Toggle onToggle={onToggleClick}>Toggle</Toggle>
+    <ColorChanger />
+  </Container>
 </div>,
   document.getElementById('root'));
