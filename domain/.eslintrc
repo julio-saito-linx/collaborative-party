@@ -1,0 +1,11 @@
+{
+  "extends": ["kentcdodds", "kentcdodds/react", "kentcdodds/webpack"],
+  "rules": {
+    "no-unused-vars": [2, {"vars": "all", "args": "none", "varsIgnorePattern": "^React$"}],
+    "no-extra-semi": "error",
+    "semi": ["error", "always"],
+    "new-cap": [0, {
+      "newIsCap": true
+    }],
+  },
+}

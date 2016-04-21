@@ -4,7 +4,7 @@ import Title from './Title';
 
 @Cerebral({
   title: ['example', 'title'],
-  color: ['example', 'color']
+  color: ['example', 'color'],
 })
 class Home extends React.Component {
 
