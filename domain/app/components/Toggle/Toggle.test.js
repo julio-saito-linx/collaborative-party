@@ -8,27 +8,6 @@ import {Simulate} from 'react-addons-test-utils';
 
 import Toggle from './Toggle';
 
-test('toggle--off class applied by default', t => {
-  const output = renderStatic();
-  t.true(output.includes('toggle--off'));
-});
-
-test('toggle--on class applied when initialToggledOn specified to true', t => {
-  const output = renderStatic({initialToggledOn: true});
-  t.true(output.includes('toggle--on'));
-});
-
-test('invokes the onToggle prop when clicked', t => {
-  const onToggle = sinon.spy();
-  const div = renderToDiv({onToggle});
-  const button = div.querySelector('button');
-  Simulate.click(button);
-
-  t.true(div.innerHTML.includes('toggle--on'));
-  t.true(onToggle.calledOnce);
-  t.true(onToggle.calledWith(true));
-});
-
 /**
  * Render the <Toggle /> component to a string with the given props
  * @param {Object} props - the props to apply to the <Toggle /> element
@@ -53,3 +32,25 @@ function renderToDiv(props) {
   );
   return div;
 }
+
+test('toggle--off class applied by default', t => {
+  const output = renderStatic();
+  t.true(output.includes('toggle--off'));
+});
+
+test('toggle--on class applied when initialToggledOn specified to true', t => {
+  const output = renderStatic({initialToggledOn: true});
+  t.true(output.includes('toggle--on'));
+});
+
+test('invokes the onToggle prop when clicked', t => {
+  const onToggle = sinon.spy();
+  const div = renderToDiv({onToggle});
+  const button = div.querySelector('button');
+  Simulate.click(button);
+
+  t.true(div.innerHTML.includes('toggle--on'));
+  t.true(onToggle.calledOnce);
+  t.true(onToggle.calledWith(true));
+});
+

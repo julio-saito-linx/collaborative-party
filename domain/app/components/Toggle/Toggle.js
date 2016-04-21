@@ -5,13 +5,6 @@ import {Decorator as Cerebral} from 'cerebral-view-react';
   toggled: ['example', 'toggled'],
 })
 class Toggle extends React.Component {
-
-  static propTypes = {
-    toggled: PropTypes.boolean,
-    children: PropTypes.any,
-    signals: PropTypes.object,
-  };
-
   // constructor(props) {
   //   super(props);
   //   this.state = {
@@ -36,5 +29,11 @@ class Toggle extends React.Component {
     );
   }
 }
+
+Toggle.propTypes = {
+  toggled: PropTypes.boolean,
+  children: PropTypes.any,
+  signals: PropTypes.object,
+};
 
 export default Toggle;
