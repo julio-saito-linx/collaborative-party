@@ -1,24 +1,34 @@
 import React, {PropTypes} from 'react';
+import {Decorator as Cerebral} from 'cerebral-view-react';
 
+@Cerebral({
+  toggled: ['example', 'toggled'],
+})
 class Toggle extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      toggledOn: props.initialToggledOn || false,
-    };
-  }
-  handleToggleClick() {
-    const toggledOn = !this.state.toggledOn;
-    this.props.onToggle(toggledOn);
-    this.setState({toggledOn});
-  }
+
+  static propTypes = {
+    toggled: PropTypes.boolean,
+    children: PropTypes.any,
+    signals: PropTypes.object,
+  };
+
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     toggledOn: props.initialToggledOn || false,
+  //   };
+  // }
+  // handleToggleClick() {
+  //   const toggledOn = !this.state.toggledOn;
+  //   this.props.onToggle(toggledOn);
+  //   this.setState({toggledOn});
+  // }
   render() {
-    const onOff = this.state.toggledOn ? 'on' : 'off';
-    const toggledClassName = `toggle--${onOff}`;
+    const signals = this.props.signals.example;
     return (
-      <div className={`toggle ${toggledClassName}`}>
+      <div className={`toggle ${this.props.toggled}`}>
         <button
-          onClick={() => this.handleToggleClick()}
+          onClick={() => signals.toggledChanged()}
         >
           {this.props.children}
         </button>
@@ -26,11 +36,5 @@ class Toggle extends React.Component {
     );
   }
 }
-
-Toggle.propTypes = {
-  initialToggledOn: PropTypes.bool,
-  onToggle: PropTypes.func,
-  children: PropTypes.any,
-};
 
 export default Toggle;
