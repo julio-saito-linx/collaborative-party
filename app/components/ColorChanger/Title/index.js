@@ -11,7 +11,7 @@ function Title(props) {
 
 Title.propTypes = {
   color: React.PropTypes.string.isRequired,
-  children: React.PropTypes.any.isRequired
+  children: React.PropTypes.any.isRequired,
 };
 
 export default Title;

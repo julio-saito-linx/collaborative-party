@@ -12,14 +12,13 @@ const controller = Controller(Model({}));
 
 controller.addModules({
   example: Example(),
-
   devtools: Devtools(),
   router: Router({
     '/': 'example.redirectRoot',
-    '/:color': 'example.colorChanged'
+    '/:color': 'example.colorChanged',
   }, {
-    onlyHash: true
-  })
+    onlyHash: true,
+  }),
 });
 
 ReactDOM.render(<Container controller={controller}><ColorChanger /></Container>, document.getElementById('root'));

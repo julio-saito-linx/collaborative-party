@@ -1,5 +1,5 @@
-import React, { PropTypes } from 'react';
-import { Decorator as Cerebral, Link } from 'cerebral-view-react';
+import React, {PropTypes} from 'react';
+import {Decorator as Cerebral} from 'cerebral-view-react';
 import Title from './Title';
 
 @Cerebral({
@@ -10,7 +10,8 @@ class Home extends React.Component {
 
   static propTypes = {
     color: PropTypes.string,
-    title: PropTypes.string
+    title: PropTypes.string,
+    signals: PropTypes.object,
   };
 
   render() {
