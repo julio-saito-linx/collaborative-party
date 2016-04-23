@@ -1,1 +1,1 @@
-import './ColorChanger-story.js';
+import './ColorChanger.story.js';

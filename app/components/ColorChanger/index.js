@@ -6,7 +6,7 @@ import Title from './Title';
   title: ['example', 'title'],
   color: ['example', 'color'],
 })
-class Home extends React.Component {
+class ColorChanger extends React.Component {
 
   static propTypes = {
     color: PropTypes.string,
@@ -15,17 +15,15 @@ class Home extends React.Component {
   };
 
   render() {
-    const signals = this.props.signals.example;
-
     return (
       <div>
         <Title color={this.props.color}>{this.props.title}</Title>
-        <button onClick={() => signals.colorChanged({color: 'red'})}>Red</button>
+        <button onClick={() => this.props.signals.example.colorChanged({color: 'red'})}>Red</button>
         {' | '}
-        <button onClick={() => signals.colorChanged({color: 'blue'})}>Blue</button>
+        <button onClick={() => this.props.signals.example.colorChanged({color: 'blue'})}>Blue</button>
       </div>
     );
   }
 }
 
-export default Home;
+export default ColorChanger;
