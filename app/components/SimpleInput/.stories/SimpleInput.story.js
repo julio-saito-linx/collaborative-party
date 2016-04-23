@@ -33,4 +33,20 @@ storiesOf('SimpleInput', module)
       />
     </Container>
   ))
+  .add('3 times', () => (
+    <Container controller={controller}>
+      <SimpleInput
+        labelText="Label 1"
+        valueText="Title 1"
+      />
+      <SimpleInput
+        labelText="Label 2"
+        valueText="Title 2"
+      />
+      <SimpleInput
+        labelText="Label 3"
+        valueText="Title 3"
+      />
+    </Container>
+  ))
   ;

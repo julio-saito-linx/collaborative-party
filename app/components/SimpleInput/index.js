@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import {Decorator as Cerebral} from 'cerebral-view-react';
+import styles from './styles.css';
 
 @Cerebral({
   labelText: ['example', 'labelText'],
@@ -16,9 +17,10 @@ class SimpleInput extends React.Component {
   render() {
     return (
       <div>
-        <label>{this.props.labelText}</label>
+        <label className={styles.label}>{this.props.labelText}</label>
         <input
           type="text"
+          className={styles.input}
           value={this.props.valueText}
         />
       </div>
