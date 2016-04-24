@@ -1,7 +1,6 @@
 import React, {PropTypes} from 'react';
 import {Decorator as Cerebral} from 'cerebral-view-react';
 import Title from './Title';
-import ButtonColorChanger from './ButtonColorChanger';
 import DynamicButtonsColorChanger from './DynamicButtonsColorChanger';
 
 @Cerebral({
@@ -22,6 +21,7 @@ class ColorChanger extends React.Component {
       <div>
         <Title color={this.props.color}>{this.props.title}</Title>
         <DynamicButtonsColorChanger />
+        <button onClick={_ => this.props.signals.example.addMoreColorsClicked(5)}>add more</button>
       </div>
       // this.props.buttonColors
     );
