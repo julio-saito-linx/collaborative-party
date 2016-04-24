@@ -12,6 +12,6 @@ storiesOf('Title', module)
   .add('pre children', () => (
     <Title><pre>i'm a pre tag</pre></Title>
   ))
-  .add('color red', () => (
-    <Title color="red">color red</Title>
+  .add('selectedColor red', () => (
+    <Title titleColor="green">color red</Title>
   ));

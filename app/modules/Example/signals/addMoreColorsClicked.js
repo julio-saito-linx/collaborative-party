@@ -1,16 +1,7 @@
-import randomcolor from 'randomcolor';
-
-function createRandomColor({output}) {
-  output({
-    newColor: randomcolor()
-  });
-}
-
-function addRandomColor({input, state}) {
-  state.push('example.buttonColors', input.newColor);
-}
+import createRandomColor from './../actions/createRandomColor.js';
+import addColor from './../actions/addColor.js';
 
 export default [
   createRandomColor,
-  addRandomColor,
+  addColor,
 ];

@@ -11,12 +11,12 @@ class DynamicButtonsColorChanger extends React.Component {
     buttonColors: PropTypes.any,
     signals: PropTypes.object,
   };
-  renderButton(color, index) {
+  renderButton(colorObj, index) {
     return (
       <ButtonColorChanger
         key={index}
         index={index}
-        toColor={color}
+        toColor={colorObj.color}
       />
     );
   }

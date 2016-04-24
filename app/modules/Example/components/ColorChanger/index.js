@@ -5,23 +5,30 @@ import DynamicButtonsColorChanger from './DynamicButtonsColorChanger';
 
 @Cerebral({
   title: ['example', 'title'],
-  color: ['example', 'color'],
+  selectedColor: ['example', 'selectedColor'],
   buttonColors: ['example', 'buttonColors'],
 })
 class ColorChanger extends React.Component {
   static propTypes = {
-    color: PropTypes.string,
+    selectedColor: PropTypes.object,
     title: PropTypes.string,
     buttonColors: PropTypes.any,
     signals: PropTypes.object,
   };
 
+  getTitleColor() {
+    if (this.props.selectedColor) {
+      return this.props.selectedColor.color;
+    }
+    return 'black';
+  }
+
   render() {
     return (
       <div>
-        <Title color={this.props.color}>{this.props.title}</Title>
+        <Title titleColor={this.getTitleColor()}>{this.props.title}</Title>
         <DynamicButtonsColorChanger />
-        <button onClick={_ => this.props.signals.example.addMoreColorsClicked(5)}>add more</button>
+        <button onClick={_ => this.props.signals.example.addMoreColorsClicked()}>add more</button>
       </div>
       // this.props.buttonColors
     );

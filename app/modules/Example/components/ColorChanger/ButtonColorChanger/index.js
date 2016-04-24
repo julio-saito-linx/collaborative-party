@@ -3,12 +3,12 @@ import {Decorator as Cerebral} from 'cerebral-view-react';
 import styles from './styles.css';
 
 @Cerebral({
-  color: ['example', 'color'],
+  selectedColor: ['example', 'selectedColor'],
 })
 class ButtonColorChanger extends React.Component {
   static propTypes = {
     children: PropTypes.any,
-    color: PropTypes.string,
+    selectedColor: PropTypes.object,
     toColor: PropTypes.string,
     signals: PropTypes.object,
   };
@@ -20,7 +20,7 @@ class ButtonColorChanger extends React.Component {
   }
   getCssClass() {
     const css = `${styles.btn} ${styles['btn-default']} ${styles['btn-margin']}`;
-    if (this.props.color === this.props.toColor) {
+    if (this.props.selectedColor.color === this.props.toColor) {
       return `${css} ${styles['btn-selected']}`;
     }
     return css;

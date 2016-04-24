@@ -3,14 +3,14 @@ import styles from './styles.css';
 
 function Title(props) {
   return (
-    <h1 style={{color: props.color}} className={styles.title}>
+    <h1 style={{color: props.titleColor}} className={styles.title}>
       {props.children}
     </h1>
   );
 }
 
 Title.propTypes = {
-  color: React.PropTypes.string.isRequired,
+  titleColor: React.PropTypes.string,
   children: React.PropTypes.any.isRequired,
 };
 
