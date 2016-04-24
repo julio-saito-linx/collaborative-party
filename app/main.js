@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Container} from 'cerebral-view-react';
-import ColorChanger from './components/ColorChanger';
+import ColorChanger from './modules/Example/components/ColorChanger';
 import controller from './controller.js';
 
 ReactDOM.render(<div>
