@@ -32,7 +32,7 @@ storiesOf('ButtonColorChanger', module)
   ))
   .add('toColor selected', () => (
     <Container controller={controller}>
-      <ButtonColorChanger toColor="red" selectedColor={{$ref: 0, color: 'red'}}/>
+      <ButtonColorChanger toColor="red" selectedColor="red"/>
     </Container>
   ))
 ;

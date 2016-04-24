@@ -5,12 +5,6 @@ import ColorChanger from '..';
 import {Container} from 'cerebral-view-react';
 import controller from '../../../../../controller.js';
 
-const selectedColor = {
-  $ref: 0,
-  color: 'green',
-};
-
-
 storiesOf('ColorChanger', module)
   // .add('no title, no color', () => (
   //   <Container controller={controller}>
@@ -28,7 +22,7 @@ storiesOf('ColorChanger', module)
     <Container controller={controller}>
       <ColorChanger
         title="Title"
-        selectedColor={selectedColor}
+        selectedColor="green"
       />
     </Container>
   ))

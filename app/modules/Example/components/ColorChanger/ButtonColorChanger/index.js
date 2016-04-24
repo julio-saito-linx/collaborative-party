@@ -8,8 +8,9 @@ import styles from './styles.css';
 class ButtonColorChanger extends React.Component {
   static propTypes = {
     children: PropTypes.any,
-    selectedColor: PropTypes.object,
+    selectedColor: PropTypes.string,
     toColor: PropTypes.string,
+    $ref: PropTypes.number,
     signals: PropTypes.object,
   };
   getChildren() {
@@ -20,7 +21,7 @@ class ButtonColorChanger extends React.Component {
   }
   getCssClass() {
     const css = `${styles.btn} ${styles['btn-default']} ${styles['btn-margin']}`;
-    if (this.props.selectedColor.color === this.props.toColor) {
+    if (this.props.selectedColor === this.props.toColor) {
       return `${css} ${styles['btn-selected']}`;
     }
     return css;
@@ -30,7 +31,11 @@ class ButtonColorChanger extends React.Component {
       <button
         style={{color: this.props.toColor}}
         className={this.getCssClass()}
-        onClick={() => this.props.signals.example.colorChanged({color: this.props.toColor})}
+        key={this.props.$ref}
+        onClick={() => this.props.signals.example.colorChanged({
+          $ref: this.props.$ref,
+          color: this.props.toColor,
+        })}
       >
         {this.getChildren()}
       </button>
