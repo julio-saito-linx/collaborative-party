@@ -3,8 +3,8 @@ import {Decorator as Cerebral} from 'cerebral-view-react';
 import styles from './styles.css';
 
 @Cerebral({
-  labelText: ['example', 'labelText'],
-  valueText: ['example', 'valueText'],
+  labelText: ['newSum', 'labelText'],
+  valueText: ['newSum', 'valueText'],
 })
 class SimpleInput extends React.Component {
 
