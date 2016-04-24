@@ -3,7 +3,7 @@ import { storiesOf, action } from '@kadira/storybook';
 import ColorChanger from '..';
 
 import {Container} from 'cerebral-view-react';
-import controller from '../../../controller.js';
+import controller from '../../../../../controller.js';
 
 storiesOf('ColorChanger', module)
   .add('no title, no color', () => (

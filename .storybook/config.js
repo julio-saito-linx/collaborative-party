@@ -1,8 +1,9 @@
 import { configure } from '@kadira/storybook';
 
 function loadStories() {
-  require('../app/components/ColorChanger/.stories');
-  require('../app/components/ColorChanger/Title/.stories');
+  require('../app/modules/Example/components/ColorChanger/.stories');
+  require('../app/modules/Example/components/ColorChanger/Title/.stories');
+  require('../app/modules/Example/components/ColorChanger/Button/.stories');
   // require as many stories as you need.
 }
 
