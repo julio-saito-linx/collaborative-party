@@ -9,13 +9,14 @@ import styles from './styles.css';
 class Button extends React.Component {
   static propTypes = {
     children: PropTypes.any,
+    toColor: PropTypes.string,
     signals: PropTypes.object,
   };
   render() {
     return (
       <button
         className={styles.buttonClass}
-        onClick={() => this.props.signals.example.colorChanged({color: 'red'})}
+        onClick={() => this.props.signals.example.colorChanged({color: this.props.toColor})}
       >
         {this.props.children}
       </button>

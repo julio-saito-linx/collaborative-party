@@ -19,13 +19,11 @@ class ColorChanger extends React.Component {
     return (
       <div>
         <Title color={this.props.color}>{this.props.title}</Title>
-        <button onClick={() => this.props.signals.example.colorChanged({color: 'red'})}>Red</button>
+        <Button toColor="black">Black</Button>
         {' | '}
-        <button onClick={() => this.props.signals.example.colorChanged({color: 'blue'})}>Blue</button>
+        <Button toColor="red">Red</Button>
         {' | '}
-        <button onClick={() => this.props.signals.example.colorChanged({color: 'black'})}>Black</button>
-        {' | '}
-        <Button>Red</Button>
+        <Button toColor="blue">Blue</Button>
       </div>
     );
   }
