@@ -12,13 +12,22 @@ class Button extends React.Component {
     toColor: PropTypes.string,
     signals: PropTypes.object,
   };
+  getChildren() {
+    if (this.props.children) {
+      return this.props.children;
+    }
+    return this.props.toColor;
+  }
+  getCssClass() {
+    return `${styles.btn} ${styles['btn-primary']} ${styles['btn-margin']}`;
+  }
   render() {
     return (
       <button
-        className={styles.buttonClass}
+        className={this.getCssClass()}
         onClick={() => this.props.signals.example.colorChanged({color: this.props.toColor})}
       >
-        {this.props.children}
+        {this.getChildren()}
       </button>
     );
   }

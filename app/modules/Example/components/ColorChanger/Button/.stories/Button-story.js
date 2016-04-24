@@ -20,4 +20,14 @@ storiesOf('Button', module)
       <Button><pre>i'm a pre tag</pre></Button>
     </Container>
   ))
+  .add('toColor', () => (
+    <Container controller={controller}>
+      <Button toColor="red">Red</Button>
+    </Container>
+  ))
+  .add('toColor only', () => (
+    <Container controller={controller}>
+      <Button toColor="red" />
+    </Container>
+  ))
 ;

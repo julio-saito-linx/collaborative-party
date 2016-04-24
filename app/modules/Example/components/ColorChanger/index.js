@@ -19,11 +19,9 @@ class ColorChanger extends React.Component {
     return (
       <div>
         <Title color={this.props.color}>{this.props.title}</Title>
-        <Button toColor="black">Black</Button>
-        {' | '}
-        <Button toColor="red">Red</Button>
-        {' | '}
-        <Button toColor="blue">Blue</Button>
+        <Button toColor="black" />
+        <Button toColor="red" />
+        <Button toColor="blue" />
       </div>
     );
   }
