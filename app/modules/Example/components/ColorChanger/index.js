@@ -1,17 +1,19 @@
 import React, {PropTypes} from 'react';
 import {Decorator as Cerebral} from 'cerebral-view-react';
 import Title from './Title';
-import Button from './Button';
+import ButtonColorChanger from './ButtonColorChanger';
+import DynamicButtonsColorChanger from './DynamicButtonsColorChanger';
 
 @Cerebral({
   title: ['example', 'title'],
   color: ['example', 'color'],
+  buttonColors: ['example', 'buttonColors'],
 })
 class ColorChanger extends React.Component {
-
   static propTypes = {
     color: PropTypes.string,
     title: PropTypes.string,
+    buttonColors: PropTypes.any,
     signals: PropTypes.object,
   };
 
@@ -19,11 +21,9 @@ class ColorChanger extends React.Component {
     return (
       <div>
         <Title color={this.props.color}>{this.props.title}</Title>
-        <Button toColor="black" />
-        <Button toColor="blue" />
-        <Button toColor="#a4a" />
-        <Button toColor="#aa4" />
+        <DynamicButtonsColorChanger />
       </div>
+      // this.props.buttonColors
     );
   }
 }
