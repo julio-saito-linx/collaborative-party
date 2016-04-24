@@ -5,6 +5,7 @@ function loadStories() {
   require('../app/modules/Example/components/ColorChanger/Title/.stories');
   require('../app/modules/Example/components/ColorChanger/ButtonColorChanger/.stories');
   require('../app/modules/Example/components/ColorChanger/DynamicButtonsColorChanger/.stories');
+  require('../app/modules/Example/components/ColorChanger/AddColorButton/.stories');
   // require as many stories as you need.
 }
 
