@@ -4,6 +4,6 @@ export default function createRandomColor({output, services, state}) {
   const ref = services.refs.next(state);
   output({
     $ref: ref,
-    color: randomcolor()
+    color: randomcolor({format: 'rgbArray'})
   });
 }

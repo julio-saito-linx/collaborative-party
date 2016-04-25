@@ -22,17 +22,17 @@ storiesOf('ButtonColorChanger', module)
   ))
   .add('toColor', () => (
     <Container controller={controller}>
-      <ButtonColorChanger toColor="red">Red</ButtonColorChanger>
+      <ButtonColorChanger toColor={[120, 30, 30]}>120, 30, 30</ButtonColorChanger>
     </Container>
   ))
   .add('toColor only', () => (
     <Container controller={controller}>
-      <ButtonColorChanger toColor="red" />
+      <ButtonColorChanger toColor={[120, 30, 30]} />
     </Container>
   ))
   .add('toColor selected', () => (
     <Container controller={controller}>
-      <ButtonColorChanger toColor="red" selectedColor="red"/>
+      <ButtonColorChanger toColor={[120, 30, 30]} selectedColor={[120, 30, 30]}/>
     </Container>
   ))
 ;

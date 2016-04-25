@@ -8,7 +8,7 @@ storiesOf('DynamicButtonsColorChanger', module)
   .add('one color', () => (
     <Container controller={controller}>
       <DynamicButtonsColorChanger buttonColors={[
-        {$ref: 0, color: 'black'},
+        {$ref: 0, color: [0, 0, 0]},
       ]}
       />
     </Container>
@@ -16,8 +16,8 @@ storiesOf('DynamicButtonsColorChanger', module)
   .add('two colors', () => (
     <Container controller={controller}>
       <DynamicButtonsColorChanger buttonColors={[
-        {$ref: 0, color: 'black'},
-        {$ref: 1, color: 'red'},
+        {$ref: 0, color: [0, 0, 0]},
+        {$ref: 1, color: [255, 0, 0]},
       ]}
       />
     </Container>

@@ -22,7 +22,7 @@ storiesOf('ColorChanger', module)
     <Container controller={controller}>
       <ColorChanger
         title="Title"
-        selectedColor="green"
+        selectedColor={[120, 30, 30]}
       />
     </Container>
   ))

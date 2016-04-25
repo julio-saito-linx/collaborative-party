@@ -11,7 +11,7 @@ import AddColorButton from './AddColorButton';
 })
 class ColorChanger extends React.Component {
   static propTypes = {
-    selectedColor: PropTypes.string,
+    selectedColor: PropTypes.array,
     title: PropTypes.string,
     buttonColors: PropTypes.any,
     signals: PropTypes.object,

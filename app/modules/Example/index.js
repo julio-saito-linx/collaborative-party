@@ -6,7 +6,7 @@ export default (_options = {}) => {
   return (module, _controller) => {
     module.addState({
       title: 'You can change the url too!',
-      selectedColor: null,
+      selectedColor: [0, 0, 0],
       buttonColors: [],
     });
 

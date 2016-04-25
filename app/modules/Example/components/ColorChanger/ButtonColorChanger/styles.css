@@ -1,1 +1,22 @@
+.color-change-box {
+  display: inline-block;
+  width: 120px;
+  height: 64px;
+  margin: 5px 11px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+}
 
+.color-change-box-label {
+  color: #444;
+  margin: 9px;
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.btn-color {
+  width: 114px;
+  height: 40px;
+}
