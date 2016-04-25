@@ -24,7 +24,7 @@ class ColorChanger extends React.Component {
         <Title titleColor={this.props.selectedColor}>{this.props.title}</Title>
         <AddColorButton />
         <Button onClickButton={_ => this.props.signals.example.removeAllItemsClicked()}>
-          Remove all Items
+          Remove all Colors
         </Button>
         <hr/>
         <DynamicButtonsColorChanger />

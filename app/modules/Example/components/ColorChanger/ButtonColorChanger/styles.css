@@ -1,8 +1,8 @@
 .color-change-box {
   display: inline-block;
   width: 120px;
-  height: 74px;
-  margin: 5px 11px;
+  height: 84px;
+  margin: 0 0 22px 22px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -16,6 +16,14 @@
   font-size: 12px;
 }
 
+.btn-selected {
+  border-width: 2px;
+  padding: 5px 11px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 1px 1px 2px black;
+}
+
 .btn-color {
   width: 114px;
   height: 40px;
@@ -26,5 +34,14 @@
 }
 
 .btn-remove {
-  color: #c77;
+  color: #fff;
+  background-color: #ccc;
+  font-weight: bold;
+  height: 20px;
+  text-align: center;
+  line-height: 0.528571;
+  float: right;
+  margin: -9px -5px 6px 0;
+  width: 23px;
+  padding: 0;
 }

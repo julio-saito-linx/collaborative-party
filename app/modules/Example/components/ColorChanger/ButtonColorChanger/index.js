@@ -16,15 +16,18 @@ class ButtonColorChanger extends React.Component {
     $ref: PropTypes.number,
     signals: PropTypes.object,
   };
+
   getChildren() {
     if (this.props.children) {
       return this.props.children;
     }
     return this.props.toColor.join(', ');
   }
+
   isSelected() {
     return _.isEqual(this.props.selectedColor, this.props.toColor);
   }
+
   buttonCss() {
     const css = [
       buttonStyles.btn,
@@ -33,42 +36,55 @@ class ButtonColorChanger extends React.Component {
       styles['btn-color'],
     ];
     if (this.isSelected()) {
-      css.push(buttonStyles['btn-selected']);
+      css.push(styles['btn-selected']);
     }
     return css.join(' ');
   }
+
+  buttonRemoveCss() {
+    const css = [
+      buttonStyles.btn,
+      styles['btn-remove'],
+      // buttonStyles['btn-default'],
+    ];
+    return css.join(' ');
+  }
+
   divStyle() {
     if (this.isSelected()) {
       return {backgroundColor: arrayToRgba(this.props.toColor, 0.5)};
     }
     return null;
   }
+
   render() {
     return (
       <div
         className={styles['color-change-box']}
         style={this.divStyle()}
       >
+        <div className={styles['remove-container']}>
+          <button
+            className={this.buttonRemoveCss()}
+            onClick={() => this.props.signals.example.removeItemClicked({
+              ref: this.props.$ref,
+            })}
+          >
+          X
+          </button>
+        </div>
+
         <button
           style={{backgroundColor: arrayToRgba(this.props.toColor, 1)}}
           className={this.buttonCss()}
           onClick={() => this.props.signals.example.colorChanged({
             color: this.props.toColor.join('-'),
           })}
-        />
+        >
+        {this.isSelected() ? 'SELECTED' : ''}
+        </button>
         <div className={styles['color-change-box-label']}>
           {this.getChildren()}
-          <div className={styles['remove-container']}>
-            <a
-              href="#"
-              className={styles['btn-remove']}
-              onClick={() => this.props.signals.example.removeItemClicked({
-                ref: this.props.$ref,
-              })}
-            >
-            remove
-            </a>
-          </div>
         </div>
       </div>
     );

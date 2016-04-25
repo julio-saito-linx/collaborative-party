@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import {Decorator as Cerebral} from 'cerebral-view-react';
 import ButtonColorChanger from '../ButtonColorChanger';
 import _ from 'lodash';
-// import styles from './styles.css';
+import styles from './styles.css';
 
 @Cerebral({
   buttonColors: ['example', 'buttonColors'],
@@ -26,7 +26,7 @@ class DynamicButtonsColorChanger extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={styles['buttons-container']}>
         {_.map(this.props.buttonColors, this.renderButton.bind(this))}
       </div>
     );

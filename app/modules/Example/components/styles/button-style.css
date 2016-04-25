@@ -33,12 +33,6 @@
   border-color: #ccc;
 }
 
-.btn-selected {
-  border-width: 2px;
-  padding: 5px 11px;
-  font-weight: bold;
-}
-
 .btn-margin {
   margin: 0 3px;
 }
