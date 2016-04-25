@@ -52,13 +52,24 @@ class ButtonColorChanger extends React.Component {
         <button
           style={{backgroundColor: arrayToRgba(this.props.toColor, 1)}}
           className={this.buttonCss()}
-          key={this.props.$ref}
           onClick={() => this.props.signals.example.colorChanged({
-            $ref: this.props.$ref,
             color: this.props.toColor.join('-'),
           })}
         />
-        <div className={styles['color-change-box-label']}>{this.getChildren()}</div>
+        <div className={styles['color-change-box-label']}>
+          {this.getChildren()}
+          <div className={styles['remove-container']}>
+            <a
+              href="#"
+              className={styles['btn-remove']}
+              onClick={() => this.props.signals.example.removeItemClicked({
+                ref: this.props.$ref,
+              })}
+            >
+            remove
+            </a>
+          </div>
+        </div>
       </div>
     );
   }

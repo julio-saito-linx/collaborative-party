@@ -1,6 +1,8 @@
 export default function addColor({input, state}) {
-  state.push('example.buttonColors', {
+  const color = {
     $ref: input.$ref,
     color: input.color,
-  });
+  };
+
+  state.set(`example.buttonColors.${input.$ref}`, color);
 }

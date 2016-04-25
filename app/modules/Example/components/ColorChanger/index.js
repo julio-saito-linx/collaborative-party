@@ -3,6 +3,7 @@ import {Decorator as Cerebral} from 'cerebral-view-react';
 import Title from './Title';
 import DynamicButtonsColorChanger from './DynamicButtonsColorChanger';
 import AddColorButton from './AddColorButton';
+import Button from './Button';
 
 @Cerebral({
   title: ['example', 'title'],
@@ -13,7 +14,7 @@ class ColorChanger extends React.Component {
   static propTypes = {
     selectedColor: PropTypes.array,
     title: PropTypes.string,
-    buttonColors: PropTypes.any,
+    buttonColors: PropTypes.object,
     signals: PropTypes.object,
   };
 
@@ -22,10 +23,12 @@ class ColorChanger extends React.Component {
       <div>
         <Title titleColor={this.props.selectedColor}>{this.props.title}</Title>
         <AddColorButton />
+        <Button onClickButton={_ => this.props.signals.example.removeAllItemsClicked()}>
+          Remove all Items
+        </Button>
         <hr/>
         <DynamicButtonsColorChanger />
       </div>
-      // this.props.buttonColors
     );
   }
 }

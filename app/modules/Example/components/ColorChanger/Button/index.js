@@ -3,21 +3,22 @@ import {Decorator as Cerebral} from 'cerebral-view-react';
 import buttonStyles from '../../styles/button-style.css';
 
 @Cerebral()
-class AddColorButton extends React.Component {
+class Button extends React.Component {
   static propTypes = {
-    buttonColors: PropTypes.object,
+    children: React.PropTypes.any.isRequired,
+    onClickButton: React.PropTypes.func.isRequired,
     signals: PropTypes.object,
   };
   render() {
     return (
       <button
         className={`${buttonStyles.btn} ${buttonStyles['btn-default']} ${buttonStyles['btn-margin']}`}
-        onClick={_ => this.props.signals.example.addMoreColorsClicked()}
+        onClick={_ => this.props.onClickButton()}
       >
-        Add New Color
+        {this.props.children}
       </button>
     );
   }
 }
 
-export default AddColorButton;
+export default Button;

@@ -1,7 +1,7 @@
 .color-change-box {
   display: inline-block;
   width: 120px;
-  height: 64px;
+  height: 74px;
   margin: 5px 11px;
   padding: 10px;
   border: 1px solid #ccc;
@@ -19,4 +19,12 @@
 .btn-color {
   width: 114px;
   height: 40px;
+}
+
+.remove-container {
+  margin: 4px 0 0 0;
+}
+
+.btn-remove {
+  color: #c77;
 }
