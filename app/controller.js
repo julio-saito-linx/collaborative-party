@@ -14,7 +14,7 @@ controller.addModules({
     '/': 'example.redirectRoot',
     '/:color': 'example.colorChanged',
   }, {
-    onlyHash: false,
+    onlyHash: true,
   }),
   refs: Refs(),
 });

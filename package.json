@@ -22,6 +22,7 @@
   "scripts": {
     "start": "cross-env kotatsu serve app/main.js --index app/index.html --config webpack.config.js --devtool eval-source-map",
     "build": "cross-env NODE_ENV=production kotatsu build client app/main.js --config webpack.production.config.js --minify -o dist ",
+    "publish": "cross-env NODE_ENV=production npm run build && surge --project dist --domain collaborative-party.surge.sh",
     "storybook": "start-storybook -p 9001"
   },
   "dependencies": {
@@ -51,6 +52,8 @@
     "eslint-plugin-react": "^5.0.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "kotatsu": "^0.13.0",
-    "style-loader": "^0.13.0"
+    "stats-webpack-plugin": "^0.3.1",
+    "style-loader": "^0.13.0",
+    "surge": "^0.17.7"
   }
 }
