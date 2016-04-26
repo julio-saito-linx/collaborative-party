@@ -4,7 +4,9 @@ import Title from './Title';
 import DynamicButtonsColorChanger from './DynamicButtonsColorChanger';
 import AddColorButton from './AddColorButton';
 import Button from './Button';
-
+import { Col, Row } from 'material-components';
+import { Calendar } from 'material-components';
+import { Checkbox } from 'material-components';
 @Cerebral({
   title: ['example', 'title'],
   selectedColor: ['example', 'selectedColor'],
@@ -28,6 +30,12 @@ class ColorChanger extends React.Component {
         </Button>
         <hr/>
         <DynamicButtonsColorChanger />
+        <Row>
+          <Col type="md-5 md-offset-1">
+            <Checkbox label="Checkbox"/>
+           </Col>
+          <Col type="md-5">t2</Col>
+        </Row>
       </div>
     );
   }

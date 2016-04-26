@@ -34,10 +34,15 @@
     "cerebral-module-devtools": "^0.6.4",
     "cerebral-module-router": "^0.14.3",
     "cerebral-view-react": "^0.11.6",
+    "classnames": "^2.2.4",
     "lodash": "^4.11.1",
+    "material-components": "^0.3.0",
+    "moment": "^2.13.0",
     "randomcolor": "^0.4.4",
     "react": "^15.0.1",
-    "react-dom": "^15.0.1"
+    "react-addons-css-transition-group": "^15.0.1",
+    "react-dom": "^15.0.1",
+    "react-tap-event-plugin": "^1.0.0"
   },
   "devDependencies": {
     "@kadira/storybook": "^1.17.1",
