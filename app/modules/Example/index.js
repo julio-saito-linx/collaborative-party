@@ -4,6 +4,8 @@ import redirectHome from './signals/redirectHome';
 import notFoundLoaded from './signals/notFoundLoaded';
 import titleChanged from './signals/titleChanged';
 import newContentLoaded from './signals/newContentLoaded';
+import titleCleared from './signals/titleCleared';
+import contentCleared from './signals/contentCleared';
 
 export default (_options = {}) => {
   return (module, _controller) => {
@@ -22,6 +24,8 @@ export default (_options = {}) => {
       notFoundLoaded,
       titleChanged,
       newContentLoaded,
+      titleCleared,
+      contentCleared,
     });
   };
 };
