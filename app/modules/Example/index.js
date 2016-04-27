@@ -1,23 +1,21 @@
-import colorChanged from './signals/colorChanged';
-import redirectRoot from './signals/redirectRoot';
-import addMoreColorsClicked from './signals/addMoreColorsClicked';
-import removeItemClicked from './signals/removeItemClicked';
-import removeAllItemsClicked from './signals/removeAllItemsClicked';
+import goHome from './signals/goHome';
+import pageALoaded from './signals/pageALoaded';
+import go404 from './signals/go404';
+import redirectTo404 from './signals/redirectTo404';
 
 export default (_options = {}) => {
   return (module, _controller) => {
     module.addState({
-      title: 'You can change the url too!',
-      selectedColor: [0, 0, 0],
-      buttonColors: {},
+      currentPage: '',
+      layoutColor: '#dff',
+      pageName: 'PageA',
     });
 
     module.addSignals({
-      colorChanged,
-      redirectRoot,
-      addMoreColorsClicked,
-      removeItemClicked,
-      removeAllItemsClicked,
+      goHome,
+      pageALoaded,
+      go404,
+      redirectTo404,
     });
   };
 };
