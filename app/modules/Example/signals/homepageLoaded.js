@@ -3,14 +3,14 @@ function setHomepage({state}) {
 }
 function setHomepageContent({state}) {
   state.set(['example', 'jumboTitle'], 'Home');
-  state.set(['example', 'jumboSubtitle'], 'home subtitle');
+  state.set(['example', 'jumboSubtitle'], 'all content came from cerebral state');
   state.set(['example', 'boxes'], [
     {
-      label: 'label 1',
+      label: 'col 1',
       text: 'text 1',
     },
     {
-      label: 'label 2',
+      label: 'col 2',
       text: 'text 2',
     }
   ]);

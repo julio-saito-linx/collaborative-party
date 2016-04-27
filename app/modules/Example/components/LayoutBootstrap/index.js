@@ -19,10 +19,14 @@ class LayoutBootstrap extends React.Component {
   };
 
   renderBoxes() {
+    let boxClass = 'col-sm-6';
+    if (this.props.boxes.length > 2) {
+      boxClass = 'col-sm-3';
+    }
     return (
       <div className="row">
         {this.props.boxes.map((box, index) => (
-          <div className="col-sm-6" key={index}>
+          <div className={boxClass} key={index}>
             <h4>{box.label}</h4>
             {box.text}
           </div>
@@ -39,17 +43,22 @@ class LayoutBootstrap extends React.Component {
             <ul className="nav nav-pills pull-right">
               <li>
                 <Link signal="example.homepageLoaded">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link signal="example.titleChanged" params={{newTitleContent: 'My Router'}}>
-                  Change Title
+                  Home Content
                 </Link>
               </li>
               <li>
                 <Link signal="example.newContentLoaded">
-                  Change Home Content
+                  Change Content
+                </Link>
+              </li>
+              <li>
+                <Link signal="example.titleChanged" params={{newTitleContent: 'My Router'}}>
+                  title: My router
+                </Link>
+              </li>
+              <li>
+                <Link signal="example.titleChanged" params={{newTitleContent: 'Cerebral Router'}}>
+                  title: Cerebral Router
                 </Link>
               </li>
             </ul>
