@@ -1,5 +1,7 @@
-import setChild from '../actions/setChild';
+function setPageA({state}) {
+  state.set(['example', 'pageName'], 'PageA');
+}
 
 export default [
-  setChild,
+  setPageA,
 ];

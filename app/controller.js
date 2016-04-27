@@ -10,9 +10,10 @@ controller.addModules({
   example: Example(),
   devtools: Devtools(),
   router: Router({
-    '/': 'example.goHome',
-    '/pageA': 'example.pageALoaded',
-    '/*': 'example.go404',
+    '/': 'example.redirectHome',
+    '/pages/home': 'example.homepageLoaded',
+    '/pages/pageA': 'example.pageALoaded',
+    '/*': 'example.notFoundLoaded',
   }, {
     onlyHash: true,
   })

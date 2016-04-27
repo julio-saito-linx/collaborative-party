@@ -3,7 +3,7 @@ import {Decorator as Cerebral} from 'cerebral-view-react';
 import LayoutBootstrap from '../LayoutBootstrap';
 
 @Cerebral()
-class NotFound404 extends React.Component {
+class Home extends React.Component {
   static propTypes = {
     signals: PropTypes.object,
   };
@@ -12,12 +12,12 @@ class NotFound404 extends React.Component {
     return (
       <div>
         <LayoutBootstrap
-          child1={404}
-          child2="Page not found"
+          child1="Home"
+          child2="Welcome"
           child3={(
             <div>
-              <h4>Page not found</h4>
-              <p>Can't find your page</p>
+              <h4>This is home</h4>
+              <p>home</p>
             </div>
           )}
         />
@@ -26,4 +26,4 @@ class NotFound404 extends React.Component {
   }
 }
 
-export default NotFound404;
+export default Home;

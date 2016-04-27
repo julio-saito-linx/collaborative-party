@@ -1,21 +1,20 @@
-import goHome from './signals/goHome';
+import homepageLoaded from './signals/homepageLoaded';
 import pageALoaded from './signals/pageALoaded';
-import go404 from './signals/go404';
-import redirectTo404 from './signals/redirectTo404';
+import redirectHome from './signals/redirectHome';
+import notFoundLoaded from './signals/notFoundLoaded';
 
 export default (_options = {}) => {
   return (module, _controller) => {
     module.addState({
-      currentPage: '',
       layoutColor: '#dff',
-      pageName: 'PageA',
+      pageName: 'pageA',
     });
 
     module.addSignals({
-      goHome,
+      homepageLoaded,
       pageALoaded,
-      go404,
-      redirectTo404,
+      redirectHome,
+      notFoundLoaded,
     });
   };
 };

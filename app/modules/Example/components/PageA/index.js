@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import {Decorator as Cerebral} from 'cerebral-view-react';
-import Layout from '../Layout';
+import LayoutBootstrap from '../LayoutBootstrap';
 
 @Cerebral()
 class PageA extends React.Component {
@@ -11,10 +11,17 @@ class PageA extends React.Component {
   render() {
     return (
       <div>
-        <Layout
-          child1={<h3>PageA</h3>}
-          child2={<hr/>}
-          child3={<p>Child 3</p>}
+        <LayoutBootstrap
+          child1="Page A"
+          child2="This is the page A"
+          child3={(
+            <div>
+              <h4>PAGE A</h4>
+              <p>A A A A A A A A A A </p>
+              <p>A A A A A A A A A A </p>
+              <p>A A A A A A A A A A </p>
+            </div>
+          )}
         />
       </div>
     );
