@@ -13,11 +13,9 @@ class MenuTitle extends React.Component {
 
   render() {
     return (
-      <h3 className="text-muted">
-        <Link signal="example.redirectHome">
-          {this.props.titleContent}
-        </Link>
-      </h3>
+      <Link className="navbar-brand" signal="example.redirectHome">
+        {this.props.titleContent}
+      </Link>
     );
   }
 }

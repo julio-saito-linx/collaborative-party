@@ -1,17 +1,16 @@
 import React, {PropTypes} from 'react';
 import {Decorator as Cerebral} from 'cerebral-view-react';
-import MenuTitle from './MenuTitle';
 import NavTopMenu from './NavTopMenu';
+import styles from './styles.css';
+import {Link} from 'cerebral-view-react';
 
 @Cerebral({
-  layoutColor: ['example', 'layoutColor'],
   jumboTitle: ['example', 'jumboTitle'],
   jumboSubtitle: ['example', 'jumboSubtitle'],
   boxes: ['example', 'boxes'],
 })
 class LayoutBootstrap extends React.Component {
   static propTypes = {
-    layoutColor: PropTypes.string,
     jumboTitle: PropTypes.string,
     jumboSubtitle: PropTypes.string,
     boxes: PropTypes.array,
@@ -54,19 +53,32 @@ class LayoutBootstrap extends React.Component {
   render() {
     return (
       <div className="container">
-        <div className="header clearfix">
-          <NavTopMenu />
-          <MenuTitle />
+        <div className={styles['up-margin']}>
+          <div className="header clearfix">
+            <NavTopMenu />
+          </div>
+          {this.renderJumbotron()}
+          {this.renderBoxes()}
+          <hr />
+          <footer className="footer">
+            <p>© 2016 Footer</p>
+            <Link
+              className={styles['link-pointer']}
+              signal="example.titleChanged"
+              params={{newTitleContent: 'My Router'}}
+            >
+              title:"My router"
+            </Link>
+            {" | "}
+            <Link
+              className={styles['link-pointer']}
+              signal="example.titleChanged"
+              params={{newTitleContent: 'Cerebral Router'}}
+            >
+              title:"Cerebral Router"
+            </Link>
+          </footer>
         </div>
-
-        {this.renderJumbotron()}
-
-        {this.renderBoxes()}
-
-        <hr />
-        <footer className="footer">
-          <p>© 2016 Footer</p>
-        </footer>
       </div>
     );
   }

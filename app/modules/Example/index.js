@@ -10,11 +10,10 @@ import contentCleared from './signals/contentCleared';
 export default (_options = {}) => {
   return (module, _controller) => {
     module.addState({
-      layoutColor: '#dff',
       pageName: 'home',
       titleContent: 'Cerebral Router',
-      jumboTitle: '',
-      jumboSubtitle: '',
+      jumboTitle: null,
+      jumboSubtitle: null,
       boxes: [],
     });
 

@@ -1,21 +1,17 @@
 import React, {PropTypes} from 'react';
 import {Decorator as Cerebral} from 'cerebral-view-react';
 import {Link} from 'cerebral-view-react';
+import MenuTitle from './MenuTitle';
 import styles from './styles.css';
 
-@Cerebral({
-  titleContent: ['example', 'titleContent'],
-})
+@Cerebral()
 class NavTopMenu extends React.Component {
   static propTypes = {
-    titleContent: PropTypes.string,
     signals: PropTypes.object,
   };
 
   render() {
     return (
-
-
       <nav className="navbar navbar-default navbar-fixed-top">
         <div className="container">
           <div className="navbar-header">
@@ -32,58 +28,42 @@ class NavTopMenu extends React.Component {
               <span className="icon-bar" />
               <span className="icon-bar" />
             </button>
-            <a className="navbar-brand" href="#">Project name</a>
+            <MenuTitle />
           </div>
           <div id="navbar" className="navbar-collapse collapse">
             <ul className="nav navbar-nav">
               <li>
                 <Link
-                  className={styles['link-ponter']}
+                  className={styles['link-pointer']}
                   signal="example.homepageLoaded"
                 >
-                  Home Content
+                  home
                 </Link>
               </li>
               <li>
                 <Link
-                  className={styles['link-ponter']}
+                  className={styles['link-pointer']}
                   signal="example.newContentLoaded"
                 >
-                  Change Content
+                  all:change
                 </Link>
               </li>
               <li>
                 <Link
-                  className={styles['link-ponter']}
+                  className={styles['link-pointer']}
+                  style={{color: '#a33'}}
                   signal="example.titleCleared"
                 >
-                  No Title
+                  title:remove
                 </Link>
               </li>
               <li>
                 <Link
-                  className={styles['link-ponter']}
+                  className={styles['link-pointer']}
+                  style={{color: '#a33'}}
                   signal="example.contentCleared"
                 >
-                  No Content
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className={styles['link-ponter']}
-                  signal="example.titleChanged"
-                  params={{newTitleContent: 'My Router'}}
-                >
-                  title: My router
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className={styles['link-ponter']}
-                  signal="example.titleChanged"
-                  params={{newTitleContent: 'Cerebral Router'}}
-                >
-                  title: Cerebral Router
+                  content:remove
                 </Link>
               </li>
             </ul>
