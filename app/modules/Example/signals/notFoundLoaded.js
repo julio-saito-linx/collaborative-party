@@ -2,6 +2,8 @@ function setNotFound({state}) {
   state.set(['example', 'pageName'], 'notFound404');
 }
 
-export default [
+const notFoundLoaded = [
   setNotFound,
 ];
+
+export default notFoundLoaded;

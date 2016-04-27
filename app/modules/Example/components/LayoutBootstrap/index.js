@@ -5,15 +5,31 @@ import MenuTitle from './MenuTitle';
 
 @Cerebral({
   layoutColor: ['example', 'layoutColor'],
+  jumboTitle: ['example', 'jumboTitle'],
+  jumboSubtitle: ['example', 'jumboSubtitle'],
+  boxes: ['example', 'boxes'],
 })
 class LayoutBootstrap extends React.Component {
   static propTypes = {
     layoutColor: PropTypes.string,
-    child1: PropTypes.any,
-    child2: PropTypes.any,
-    child3: PropTypes.any,
+    jumboTitle: PropTypes.string,
+    jumboSubtitle: PropTypes.string,
+    boxes: PropTypes.array,
     signals: PropTypes.object,
   };
+
+  renderBoxes() {
+    return (
+      <div className="row">
+        {this.props.boxes.map((box, index) => (
+          <div className="col-sm-6" key={index}>
+            <h4>{box.label}</h4>
+            {box.text}
+          </div>
+        ))}
+      </div>
+    );
+  }
 
   render() {
     return (
@@ -27,13 +43,13 @@ class LayoutBootstrap extends React.Component {
                 </Link>
               </li>
               <li>
-                <Link signal="example.pageALoaded">
-                  Page A
+                <Link signal="example.titleChanged" params={{newTitleContent: 'My Router'}}>
+                  Change Title
                 </Link>
               </li>
               <li>
-                <Link signal="example.titleChanged" params={{newTitleContent: 'My Router'}}>
-                  Change Title
+                <Link signal="example.newContentLoaded">
+                  Change Home Content
                 </Link>
               </li>
             </ul>
@@ -42,18 +58,13 @@ class LayoutBootstrap extends React.Component {
         </div>
 
         <div className="jumbotron">
-          <h1>{this.props.child1}</h1>
-          <p className="lead">{this.props.child2}</p>
+          <h1>{this.props.jumboTitle}</h1>
+          <p className="lead">{this.props.jumboSubtitle}</p>
         </div>
 
-        <div className="row marketing">
-          <div className="col-sm-6">
-            {this.props.child3}
-          </div>
-          <div className="col-sm-6">
-            {this.props.child3}
-          </div>
-        </div>
+        {this.renderBoxes()}
+
+        <hr />
         <footer className="footer">
           <p>© 2016 Footer</p>
         </footer>

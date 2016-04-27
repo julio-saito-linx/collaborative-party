@@ -1,5 +1,7 @@
 import {redirect} from 'cerebral-module-router';
 
-export default [
+const redirectHome = [
   redirect('/pages/home'),
 ];
+
+export default redirectHome;

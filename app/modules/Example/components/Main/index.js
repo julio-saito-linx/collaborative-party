@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import {Decorator as Cerebral} from 'cerebral-view-react';
-import PageA from '../PageA';
 import Home from '../Home';
 import NotFound404 from '../NotFound404';
 
@@ -16,9 +15,6 @@ class Main extends React.Component {
   getPage(pageName) {
     if (pageName === 'home') {
       return <Home />;
-    }
-    if (pageName === 'PageA') {
-      return <PageA />;
     }
     return <NotFound404 />;
   }

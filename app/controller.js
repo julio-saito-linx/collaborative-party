@@ -12,7 +12,6 @@ controller.addModules({
   router: Router({
     '/': 'example.redirectHome',
     '/pages/home': 'example.homepageLoaded',
-    '/pages/pageA': 'example.pageALoaded',
     '/*': 'example.notFoundLoaded',
   }, {
     onlyHash: true,

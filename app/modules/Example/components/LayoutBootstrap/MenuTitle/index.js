@@ -7,7 +7,7 @@ import {Link} from 'cerebral-view-react';
 })
 class MenuTitle extends React.Component {
   static propTypes = {
-    titleContent: PropTypes.any,
+    titleContent: PropTypes.string,
     signals: PropTypes.object,
   };
 

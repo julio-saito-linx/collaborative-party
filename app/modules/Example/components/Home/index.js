@@ -11,16 +11,7 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <LayoutBootstrap
-          child1="Home"
-          child2="Welcome"
-          child3={(
-            <div>
-              <h4>This is home</h4>
-              <p>home</p>
-            </div>
-          )}
-        />
+        <LayoutBootstrap />
       </div>
     );
   }
