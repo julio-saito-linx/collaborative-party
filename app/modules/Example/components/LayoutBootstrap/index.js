@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import {Decorator as Cerebral} from 'cerebral-view-react';
 import {Link} from 'cerebral-view-react';
+import MenuTitle from './MenuTitle';
 
 @Cerebral({
   layoutColor: ['example', 'layoutColor'],
@@ -30,13 +31,14 @@ class LayoutBootstrap extends React.Component {
                   Page A
                 </Link>
               </li>
+              <li>
+                <Link signal="example.titleChanged" params={{newTitleContent: 'My Router'}}>
+                  Change Title
+                </Link>
+              </li>
             </ul>
           </nav>
-          <h3 className="text-muted">
-            <Link signal="example.redirectHome">
-              Cerebral Router
-            </Link>
-          </h3>
+          <MenuTitle />
         </div>
 
         <div className="jumbotron">
