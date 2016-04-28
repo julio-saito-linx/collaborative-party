@@ -4,11 +4,16 @@ import redirectHome from './signals/redirectHome';
 import notFoundLoaded from './signals/notFoundLoaded';
 import dialogOpenRequested from './signals/dialogOpenRequested';
 import dialogCloseRequested from './signals/dialogCloseRequested';
+import httpGetRequested from './signals/httpGetRequested';
 
 export default (_options = {}) => {
   return (module, _controller) => {
     module.addState({
       openDialog: false,
+      userId: 0,
+      id: 0,
+      title: '',
+      body: '',
     });
 
     module.addSignals({
@@ -17,6 +22,7 @@ export default (_options = {}) => {
       notFoundLoaded,
       dialogOpenRequested,
       dialogCloseRequested,
+      httpGetRequested,
     });
   };
 };

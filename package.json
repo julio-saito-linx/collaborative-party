@@ -33,6 +33,7 @@
     "cerebral-addons": "^0.5.3",
     "cerebral-model-baobab": "^0.4.7",
     "cerebral-module-devtools": "^0.6.4",
+    "cerebral-module-http": "^0.1.1",
     "cerebral-module-router": "^0.14.3",
     "cerebral-view-react": "^0.11.6",
     "lodash": "^4.11.1",

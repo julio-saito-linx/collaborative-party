@@ -10,7 +10,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 const styles = {
   container: {
     textAlign: 'center',
-    paddingTop: 200,
+    paddingTop: 50,
   },
   buttonMargin: {
     margin: 20,
@@ -25,10 +25,18 @@ const muiTheme = getMuiTheme({
 
 @Cerebral({
   openDialog: ['example', 'openDialog'],
+  userId: ['example', 'userId'],
+  id: ['example', 'id'],
+  title: ['example', 'title'],
+  body: ['example', 'body'],
 })
 class Home extends React.Component {
   static propTypes = {
     openDialog: PropTypes.bool,
+    userId: PropTypes.number,
+    id: PropTypes.number,
+    title: PropTypes.string,
+    body: PropTypes.string,
     signals: PropTypes.object,
   };
 
@@ -68,8 +76,46 @@ class Home extends React.Component {
             label="Get Data"
             secondary={true}
             style={styles.buttonMargin}
-            onTouchTap={() => this.props.signals.example.dialogOpenRequested()}
+            onTouchTap={() => this.props.signals.example.httpGetRequested()}
           />
+
+          <p>
+            <label>
+              <strong>
+                userId:
+              </strong>
+            </label>
+            <br />
+            {this.props.userId}
+          </p>
+          <p>
+            <label>
+              <strong>
+                id:
+              </strong>
+            </label>
+            <br />
+            {this.props.id}
+          </p>
+          <p>
+            <label>
+              <strong>
+                title:
+              </strong>
+            </label>
+            <br />
+            {this.props.title}
+          </p>
+          <p>
+            <label>
+              <strong>
+                body:
+              </strong>
+            </label>
+            <br />
+            {this.props.body}
+          </p>
+
         </div>
       </MuiThemeProvider>
     );
