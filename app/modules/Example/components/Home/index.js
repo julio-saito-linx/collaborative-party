@@ -38,7 +38,7 @@ class Home extends React.Component {
       <FlatButton
         label="Ok"
         secondary={true}
-        onTouchTap={this.handleRequestClose}
+        onTouchTap={() => this.props.signals.example.dialogCloseRequested()}
       />
     );
 
@@ -49,7 +49,7 @@ class Home extends React.Component {
             open={this.props.openDialog}
             title="Super Secret Password"
             actions={standardActions}
-            onRequestClose={this.props.signals.example.dialogCloseRequested()}
+            onRequestClose={() => this.props.signals.example.dialogCloseRequested()}
           >
             1-2-3-4-5
           </Dialog>
@@ -58,7 +58,7 @@ class Home extends React.Component {
           <RaisedButton
             label="Super Secret Password"
             primary={true}
-            onTouchTap={this.props.signals.example.dialogOpenRequested()}
+            onTouchTap={() => this.props.signals.example.dialogOpenRequested()}
           />
         </div>
       </MuiThemeProvider>
