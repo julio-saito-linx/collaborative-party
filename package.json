@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "A boilerplate for Cerebral",
   "main": "server.js",
+  "engine": "node >= 5.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/cerebral/cerebral-boilerplate.git"
@@ -42,6 +43,7 @@
     "react-tap-event-plugin": "^1.0.0"
   },
   "devDependencies": {
+    "autoprefixer": "^6.3.6",
     "babel-core": "^6.7.7",
     "babel-eslint": "^6.0.3",
     "babel-loader": "^6.2.4",
