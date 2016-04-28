@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import {Decorator as Cerebral} from 'cerebral-view-react';
-import Home from '../Home';
 import NotFound404 from '../NotFound404';
+import Home from '../Home';
 
 @Cerebral({
   pageName: ['example', 'pageName'],
@@ -12,19 +12,15 @@ class Main extends React.Component {
     signals: PropTypes.object,
   };
 
-  getPage(pageName) {
-    if (pageName === 'home') {
+  getPage() {
+    if (this.props.pageName === 'home') {
       return <Home />;
     }
     return <NotFound404 />;
   }
 
   render() {
-    return (
-      <div>
-        {this.getPage(this.props.pageName)}
-      </div>
-    );
+    return this.getPage();
   }
 }
 

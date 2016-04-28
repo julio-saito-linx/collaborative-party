@@ -2,29 +2,21 @@ import React from 'react';
 import homepageLoaded from './signals/homepageLoaded';
 import redirectHome from './signals/redirectHome';
 import notFoundLoaded from './signals/notFoundLoaded';
-import titleChanged from './signals/titleChanged';
-import newContentLoaded from './signals/newContentLoaded';
-import titleCleared from './signals/titleCleared';
-import contentCleared from './signals/contentCleared';
+import dialogOpenRequested from './signals/dialogOpenRequested';
+import dialogCloseRequested from './signals/dialogCloseRequested';
 
 export default (_options = {}) => {
   return (module, _controller) => {
     module.addState({
-      pageName: 'home',
-      titleContent: 'Cerebral Router',
-      jumboTitle: null,
-      jumboSubtitle: null,
-      boxes: [],
+      openDialog: false,
     });
 
     module.addSignals({
       homepageLoaded,
       redirectHome,
       notFoundLoaded,
-      titleChanged,
-      newContentLoaded,
-      titleCleared,
-      contentCleared,
+      dialogOpenRequested,
+      dialogCloseRequested,
     });
   };
 };

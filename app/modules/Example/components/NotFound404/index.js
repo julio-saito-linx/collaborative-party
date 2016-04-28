@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import {Decorator as Cerebral} from 'cerebral-view-react';
-import LayoutBootstrap from '../LayoutBootstrap';
 
 @Cerebral()
 class NotFound404 extends React.Component {
@@ -11,14 +10,7 @@ class NotFound404 extends React.Component {
   render() {
     return (
       <div>
-        <LayoutBootstrap
-          jumboTitle="404"
-          jumboSubtitle="Page not found"
-          boxes={[{
-            label: 'not',
-            text: 'found',
-          }]}
-        />
+        404
       </div>
     );
   }
