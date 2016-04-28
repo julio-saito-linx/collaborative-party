@@ -23,7 +23,7 @@
   "scripts": {
     "start": "cross-env kotatsu serve app/main.js --index app/index.html --config webpack.config.js --devtool eval-source-map",
     "build": "cross-env NODE_ENV=production kotatsu build client app/main.js --config webpack.production.config.js --minify -o dist ",
-    "surge": "surge --project dist --domain collaborative-party.surge.sh",
+    "surge": "surge --project dist --domain cerebral-http-get-request.surge.sh",
     "publish": "npm run build && npm run surge",
     "storybook": "start-storybook -p 9001"
   },
