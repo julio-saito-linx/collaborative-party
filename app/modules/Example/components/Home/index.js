@@ -12,6 +12,9 @@ const styles = {
     textAlign: 'center',
     paddingTop: 200,
   },
+  buttonMargin: {
+    margin: 20,
+  },
 };
 
 const muiTheme = getMuiTheme({
@@ -51,13 +54,20 @@ class Home extends React.Component {
             actions={standardActions}
             onRequestClose={() => this.props.signals.example.dialogCloseRequested()}
           >
-            1-2-3-4-5
+            pa$$w0rd
           </Dialog>
           <h1>material-ui</h1>
           <h2>example project</h2>
           <RaisedButton
-            label="Super Secret Password"
+            label="Some Password"
             primary={true}
+            style={styles.buttonMargin}
+            onTouchTap={() => this.props.signals.example.dialogOpenRequested()}
+          />
+          <RaisedButton
+            label="Get Data"
+            secondary={true}
+            style={styles.buttonMargin}
             onTouchTap={() => this.props.signals.example.dialogOpenRequested()}
           />
         </div>
