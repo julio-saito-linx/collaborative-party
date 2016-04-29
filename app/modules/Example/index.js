@@ -10,10 +10,7 @@ export default (_options = {}) => {
   return (module, _controller) => {
     module.addState({
       openDialog: false,
-      userId: 0,
-      id: 0,
-      title: '',
-      body: '',
+      usersList: [],
     });
 
     module.addSignals({

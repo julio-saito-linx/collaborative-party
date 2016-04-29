@@ -6,6 +6,8 @@ import {deepOrange500} from 'material-ui/styles/colors';
 import FlatButton from 'material-ui/FlatButton';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import TableList from '../TableList';
+import PhoneList from '../PhoneList';
 
 const styles = {
   container: {
@@ -25,18 +27,10 @@ const muiTheme = getMuiTheme({
 
 @Cerebral({
   openDialog: ['example', 'openDialog'],
-  userId: ['example', 'userId'],
-  id: ['example', 'id'],
-  title: ['example', 'title'],
-  body: ['example', 'body'],
 })
 class Home extends React.Component {
   static propTypes = {
     openDialog: PropTypes.bool,
-    userId: PropTypes.number,
-    id: PropTypes.number,
-    title: PropTypes.string,
-    body: PropTypes.string,
     signals: PropTypes.object,
   };
 
@@ -67,54 +61,19 @@ class Home extends React.Component {
           <h1>material-ui</h1>
           <h2>example project</h2>
           <RaisedButton
-            label="Some Password"
+            label="Dialog Example"
             primary={true}
             style={styles.buttonMargin}
             onTouchTap={() => this.props.signals.example.dialogOpenRequested()}
           />
           <RaisedButton
-            label="Get Data"
+            label="Get List"
             secondary={true}
             style={styles.buttonMargin}
             onTouchTap={() => this.props.signals.example.httpGetRequested()}
           />
 
-          <p>
-            <label>
-              <strong>
-                userId:
-              </strong>
-            </label>
-            <br />
-            {this.props.userId}
-          </p>
-          <p>
-            <label>
-              <strong>
-                id:
-              </strong>
-            </label>
-            <br />
-            {this.props.id}
-          </p>
-          <p>
-            <label>
-              <strong>
-                title:
-              </strong>
-            </label>
-            <br />
-            {this.props.title}
-          </p>
-          <p>
-            <label>
-              <strong>
-                body:
-              </strong>
-            </label>
-            <br />
-            {this.props.body}
-          </p>
+          <PhoneList />
 
         </div>
       </MuiThemeProvider>
