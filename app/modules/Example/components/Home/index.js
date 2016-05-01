@@ -1,18 +1,19 @@
 import React, {PropTypes} from 'react';
 import {Decorator as Cerebral} from 'cerebral-view-react';
-import Dialog from 'material-ui/Dialog';
+import {
+  AppBar,
+  IconButton,
+} from 'material-ui';
+import {
+  NavigationArrowBack,
+} from 'material-ui/svg-icons';
 import {deepOrange500} from 'material-ui/styles/colors';
-import FlatButton from 'material-ui/FlatButton';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import PhoneList from '../PhoneList';
 import PhoneDetail from '../PhoneDetail';
 
 const styles = {
-  container: {
-    textAlign: 'center',
-    paddingTop: 10,
-  },
   center: {
     textAlign: 'center',
   },
@@ -39,11 +40,13 @@ const muiTheme = getMuiTheme({
 
 @Cerebral({
   openDialog: ['example', 'openDialog'],
+  pageTitle: ['example', 'pageTitle'],
   selectedUser: ['example', 'selectedUser'],
 })
 class Home extends React.Component {
   static propTypes = {
     openDialog: PropTypes.bool,
+    pageTitle: PropTypes.string,
     selectedUser: PropTypes.object,
     signals: PropTypes.object,
   };
@@ -52,42 +55,47 @@ class Home extends React.Component {
     super(props, context);
   }
 
-  // componentDidMount() {
-  //   this.props.signals.homepageLoaded();
-  // }
+  renderLeftIcon(props) {
+    if (props.pageTitle === 'Phone List') {
+      return null;
+    }
+    return (
+      <IconButton
+        onClick={_ => this.props.signals.example.backToListClicked()}
+      >
+        <NavigationArrowBack />
+      </IconButton>
+    );
+  }
+
+  renderList(props) {
+    if (props.pageTitle === 'Phone List') {
+      return <PhoneList />;
+    }
+    return null;
+  }
+
+  renderDetail(props) {
+    if (props.pageTitle !== 'Phone List') {
+      return <PhoneDetail />;
+    }
+    return null;
+  }
 
   render() {
-    const standardActions = (
-      <FlatButton
-        label="Ok"
-        secondary={true}
-        onTouchTap={() => this.props.signals.example.dialogCloseRequested()}
-      />
-    );
-
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div style={styles.container}>
-          <h1>Phone List</h1>
-          <h4>cerebral controller + baobab + material-ui</h4>
-
-          <PhoneList />
-
-          <Dialog
-            style={styles.center}
-            open={this.props.openDialog}
-            title={this.props.selectedUser && this.props.selectedUser.name}
-            actions={standardActions}
-            onRequestClose={() => this.props.signals.example.dialogCloseRequested()}
-          >
-            <PhoneDetail />
-          </Dialog>
+          <AppBar
+            title={this.props.pageTitle}
+            iconElementLeft={this.renderLeftIcon(this.props)}
+          />
+          {this.renderList(this.props)}
+          {this.renderDetail(this.props)}
         </div>
       </MuiThemeProvider>
     );
   }
 }
-
-// onTouchTap={() => this.props.signals.example.dialogOpenRequested()}
 
 export default Home;

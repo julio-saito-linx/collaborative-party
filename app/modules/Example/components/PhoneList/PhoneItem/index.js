@@ -1,7 +1,10 @@
 import React, {PropTypes} from 'react';
 import {Decorator as Cerebral} from 'cerebral-view-react';
 import {ListItem} from 'material-ui';
-import {CommunicationCall, CommunicationChatBubble} from 'material-ui/svg-icons';
+import {
+  CommunicationCall,
+  CommunicationChatBubble,
+} from 'material-ui/svg-icons';
 import {indigo500} from 'material-ui/styles/colors';
 
 const styles = {
@@ -49,10 +52,9 @@ class PhoneItem extends React.Component {
         key={this.props.id}
         value={this.props.id}
         style={this.getSelectedStyle()}
-        leftIcon={<CommunicationCall color={indigo500} />}
-        rightIcon={<CommunicationChatBubble />}
-        primaryText={this.props.username}
-        secondaryText={this.props.name}
+        // leftIcon={<CommunicationCall color={indigo500} />}
+        // rightIcon={<CommunicationChatBubble />}
+        primaryText={this.props.name}
         onClick={this.itemClicked.bind(this)}
       />
     );

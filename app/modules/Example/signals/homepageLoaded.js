@@ -3,6 +3,7 @@ function setHomepage({state}) {
 }
 function setHomepageContent({state}) {
   state.set(['example', 'openDialog'], false);
+  state.set(['example', 'pageTitle'], 'Phone List');
 }
 function getData({output, services}) {
   services.http.get('http://jsonplaceholder.typicode.com/users')
