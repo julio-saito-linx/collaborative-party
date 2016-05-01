@@ -6,8 +6,8 @@ import {deepOrange500} from 'material-ui/styles/colors';
 import FlatButton from 'material-ui/FlatButton';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import TableList from '../TableList';
 import PhoneList from '../PhoneList';
+import PhoneDetail from '../PhoneDetail';
 
 const styles = {
   container: {
@@ -16,6 +16,16 @@ const styles = {
   },
   buttonMargin: {
     margin: 20,
+  },
+  listLeft: {
+    width: '50%',
+    display: 'inline-block',
+    verticalAlign: 'top',
+  },
+  detailsRight: {
+    width: '50%',
+    display: 'inline-block',
+    verticalAlign: 'top',
   },
 };
 
@@ -73,7 +83,15 @@ class Home extends React.Component {
             onTouchTap={() => this.props.signals.example.httpGetRequested()}
           />
 
-          <PhoneList />
+          <div style={styles.containerDiv}>
+            <div style={styles.listLeft}>
+              <PhoneList />
+            </div>
+            <div style={styles.detailsRight}>
+              <PhoneDetail />
+            </div>
+          </div>
+
 
         </div>
       </MuiThemeProvider>

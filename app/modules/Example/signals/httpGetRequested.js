@@ -5,7 +5,13 @@ function getData({output, services}) {
 }
 
 function setData({input, state}) {
-  state.set(['example', 'usersList'], input.result);
+  // convert array to object
+  const objectWithItens = input.result.reduce((prev, curr) => {
+    // object key is the user ID
+    prev[`${curr.id}`] = curr;
+    return prev;
+  }, {});
+  state.set(['example', 'usersList'], objectWithItens);
 }
 
 const httpGetRequested = [

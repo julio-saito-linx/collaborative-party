@@ -5,12 +5,15 @@ import notFoundLoaded from './signals/notFoundLoaded';
 import dialogOpenRequested from './signals/dialogOpenRequested';
 import dialogCloseRequested from './signals/dialogCloseRequested';
 import httpGetRequested from './signals/httpGetRequested';
+import phoneItemSelected from './signals/phoneItemSelected';
 
 export default (_options = {}) => {
   return (module, _controller) => {
     module.addState({
       openDialog: false,
-      usersList: [],
+      usersList: {},
+      selectedId: null,
+      selectedUser: null,
     });
 
     module.addSignals({
@@ -20,6 +23,7 @@ export default (_options = {}) => {
       dialogOpenRequested,
       dialogCloseRequested,
       httpGetRequested,
+      phoneItemSelected,
     });
   };
 };

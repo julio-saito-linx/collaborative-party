@@ -1,38 +1,29 @@
 import React, {PropTypes} from 'react';
 import {Decorator as Cerebral} from 'cerebral-view-react';
-
-import {
-  List,
-  ListItem} from 'material-ui';
-
-import {
-  CommunicationCall,
-  CommunicationChatBubble } from 'material-ui/svg-icons';
-
-import { indigo500 } from 'material-ui/styles/colors';
+import {List} from 'material-ui';
+import PhoneItem from './PhoneItem';
+import _ from 'lodash';
 
 @Cerebral({
   usersList: ['example', 'usersList']
 })
-
 class PhoneList extends React.Component {
   static propTypes = {
-    usersList: PropTypes.array,
+    usersList: PropTypes.object,
     signals: PropTypes.object,
   };
 
   renderItens() {
-    if (!this.props.usersList || this.props.usersList.length === 0) {
+    if (!this.props.usersList) {
       return null;
     }
 
-    return this.props.usersList.map(user => (
-      <ListItem
+    return _.map(this.props.usersList, (user) => (
+      <PhoneItem
         key={user.id}
-        leftIcon={<CommunicationCall color={indigo500} />}
-        rightIcon={<CommunicationChatBubble />}
-        primaryText={user.username}
-        secondaryText={user.name}
+        id={user.id}
+        username={user.username}
+        name={user.name}
       />
     ));
   }
