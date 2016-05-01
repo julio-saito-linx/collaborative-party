@@ -29,6 +29,7 @@ class PhoneItem extends React.Component {
       name: this.props.name,
     };
     this.props.signals.example.phoneItemSelected({user});
+    this.props.signals.example.dialogOpenRequested();
   }
 
   isSelected() {

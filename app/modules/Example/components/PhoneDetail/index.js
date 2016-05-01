@@ -1,6 +1,18 @@
 import React, {PropTypes} from 'react';
 import {Decorator as Cerebral} from 'cerebral-view-react';
-import _ from 'lodash';
+import {List} from 'material-ui';
+import {ListItem} from 'material-ui';
+import {
+  CommunicationCall,
+  CommunicationEmail,
+  ActionWork,
+} from 'material-ui/svg-icons';
+
+const styles = {
+  left: {
+    textAlign: 'left',
+  },
+};
 
 @Cerebral({
   user: ['example', 'selectedUser'],
@@ -13,35 +25,34 @@ class PhoneDetail extends React.Component {
 
   getAllUserProps(props) {
     if (props.user) {
-      return _.map(props.user, (prop, key) => {
-        if (typeof prop === 'string' || typeof prop === 'number') {
-          return (
-            <div key={key}>
-              <strong>
-                {key}
-              </strong>
-              {': '}
-              <span>
-                {prop}
-              </span>
-              <br />
-            </div>
-          );
-        }
-        return null;
-      });
+      return (
+        [
+          <ListItem
+            key={0}
+            leftIcon={<CommunicationCall />}
+            primaryText={props.user.phone}
+          />,
+          <ListItem
+            key={1}
+            leftIcon={<CommunicationEmail />}
+            primaryText={props.user.email}
+          />,
+          <ListItem
+            key={2}
+            leftIcon={<ActionWork />}
+            primaryText={props.user.company && props.user.company.name}
+          />,
+        ]
+      );
     }
     return null;
   }
 
   render() {
     return (
-      <div>
-        <h3>{'Detail'}</h3>
-        <hr />
+      <List style={styles.left}>
         {this.getAllUserProps(this.props)}
-      </div>
-
+      </List>
     );
   }
 }

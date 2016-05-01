@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import {Decorator as Cerebral} from 'cerebral-view-react';
-import RaisedButton from 'material-ui/RaisedButton';
 import Dialog from 'material-ui/Dialog';
 import {deepOrange500} from 'material-ui/styles/colors';
 import FlatButton from 'material-ui/FlatButton';
@@ -12,7 +11,10 @@ import PhoneDetail from '../PhoneDetail';
 const styles = {
   container: {
     textAlign: 'center',
-    paddingTop: 50,
+    paddingTop: 10,
+  },
+  center: {
+    textAlign: 'center',
   },
   buttonMargin: {
     margin: 20,
@@ -37,16 +39,22 @@ const muiTheme = getMuiTheme({
 
 @Cerebral({
   openDialog: ['example', 'openDialog'],
+  selectedUser: ['example', 'selectedUser'],
 })
 class Home extends React.Component {
   static propTypes = {
     openDialog: PropTypes.bool,
+    selectedUser: PropTypes.object,
     signals: PropTypes.object,
   };
 
   constructor(props, context) {
     super(props, context);
   }
+
+  // componentDidMount() {
+  //   this.props.signals.homepageLoaded();
+  // }
 
   render() {
     const standardActions = (
@@ -60,43 +68,26 @@ class Home extends React.Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div style={styles.container}>
+          <h1>Phone List</h1>
+          <h4>cerebral controller + baobab + material-ui</h4>
+
+          <PhoneList />
+
           <Dialog
+            style={styles.center}
             open={this.props.openDialog}
-            title="Super Secret Password"
+            title={this.props.selectedUser && this.props.selectedUser.name}
             actions={standardActions}
             onRequestClose={() => this.props.signals.example.dialogCloseRequested()}
           >
-            pa$$w0rd
+            <PhoneDetail />
           </Dialog>
-          <h1>material-ui</h1>
-          <h2>example project</h2>
-          <RaisedButton
-            label="Dialog Example"
-            primary={true}
-            style={styles.buttonMargin}
-            onTouchTap={() => this.props.signals.example.dialogOpenRequested()}
-          />
-          <RaisedButton
-            label="Get List"
-            secondary={true}
-            style={styles.buttonMargin}
-            onTouchTap={() => this.props.signals.example.httpGetRequested()}
-          />
-
-          <div style={styles.containerDiv}>
-            <div style={styles.listLeft}>
-              <PhoneList />
-            </div>
-            <div style={styles.detailsRight}>
-              <PhoneDetail />
-            </div>
-          </div>
-
-
         </div>
       </MuiThemeProvider>
     );
   }
 }
+
+// onTouchTap={() => this.props.signals.example.dialogOpenRequested()}
 
 export default Home;
