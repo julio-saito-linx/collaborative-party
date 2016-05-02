@@ -46,7 +46,7 @@ systems({
     }
   },
 
-  'express-rethink': {
+  'rethink-server': {
     depends: ['rethink-db'],
     image: {'docker': 'node'},
     provision: [
