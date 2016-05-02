@@ -24,8 +24,7 @@
     "start": "cross-env kotatsu serve app/main.js --index app/index.html --config webpack.config.js --devtool eval-source-map",
     "build": "cross-env NODE_ENV=production kotatsu build client app/main.js --config webpack.production.config.js --minify -o dist ",
     "surge": "surge --project dist --domain cerebral-material-ui-phone-list.surge.sh",
-    "publish": "npm run build && npm run surge",
-    "storybook": "start-storybook -p 9001"
+    "publish": "npm run build && npm run surge"
   },
   "dependencies": {
     "baobab": "^2.3.3",
@@ -41,8 +40,7 @@
     "randomcolor": "^0.4.4",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
-    "react-tap-event-plugin": "^1.0.0",
-    "rethinkdbdash": "^2.3.5"
+    "react-tap-event-plugin": "^1.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
