@@ -41,10 +41,6 @@ class PhoneDetail extends React.Component {
     signals: PropTypes.object,
   };
 
-  backToListClicked() {
-    this.props.signals.example.backToListClicked();
-  }
-
   getAllUserProps(props) {
     if (props.user) {
       return (

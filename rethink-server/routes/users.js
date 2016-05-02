@@ -23,7 +23,7 @@ router.get('/:id', auth.authorize, (request, response, next) => {
   });
 });
 
-router.post('/', auth.authorize, (request, response) => {
+router.post('/', (request, response) => {
   auth.hash_password(request.body.password)
   .then((hash) => {
     const newUser = {

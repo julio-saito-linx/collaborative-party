@@ -19,4 +19,6 @@ module.exports.verify = (token, next) => {
     expiredError.status = 401;
     return next(expiredError);
   }
+
+  return next();
 };

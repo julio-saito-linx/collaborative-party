@@ -10,9 +10,18 @@ import {
 import {deepOrange500} from 'material-ui/styles/colors';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {
+  PHONE_LIST,
+  PHONE_DETAIL,
+  SIGN_IN,
+  LOG_IN,
+} from '../../constants.js';
+
 import PhoneList from '../PhoneList';
 import PhoneDetail from '../PhoneDetail';
-import {PHONE_LIST} from '../../constants.js';
+import SignIn from '../SignIn';
+import LogIn from '../LogIn';
+
 const muiTheme = getMuiTheme({
   palette: {
     accent1Color: deepOrange500,
@@ -49,16 +58,18 @@ class Home extends React.Component {
     );
   }
 
-  renderList(props) {
+  renderBody(props) {
     if (props.pageTitle === PHONE_LIST) {
       return <PhoneList />;
     }
-    return null;
-  }
-
-  renderDetail(props) {
-    if (props.pageTitle !== PHONE_LIST) {
+    if (props.pageTitle === PHONE_DETAIL) {
       return <PhoneDetail />;
+    }
+    if (props.pageTitle === SIGN_IN) {
+      return <SignIn />;
+    }
+    if (props.pageTitle === LOG_IN) {
+      return <LogIn />;
     }
     return null;
   }
@@ -71,8 +82,7 @@ class Home extends React.Component {
             title={this.props.pageTitle}
             iconElementLeft={this.renderLeftIcon(this.props)}
           />
-          {this.renderList(this.props)}
-          {this.renderDetail(this.props)}
+          {this.renderBody(this.props)}
         </div>
       </MuiThemeProvider>
     );
