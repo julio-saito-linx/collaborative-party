@@ -19,7 +19,7 @@ app.use(helmet());
 app.use('/users', users);
 app.use('/login', login);
 
-app.use((error, request, response, next) => {
+app.use((error, request, response, _next) => {
   response.status(error.status || 500);
   response.json({ error: error.message });
 });
