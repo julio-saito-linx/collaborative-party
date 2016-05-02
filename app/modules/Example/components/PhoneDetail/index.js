@@ -4,8 +4,6 @@ import {Decorator as Cerebral} from 'cerebral-view-react';
 import {
   List,
   ListItem,
-  Divider,
-  RaisedButton,
 } from 'material-ui';
 
 import {

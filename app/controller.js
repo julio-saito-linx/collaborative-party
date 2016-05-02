@@ -12,16 +12,12 @@ controller.addModules({
   devtools: Devtools(),
   router: Router({
     '/': 'example.redirectHome',
-    '/pages/home': 'example.homepageLoaded',
+    '/phone-list': 'example.homepageLoaded',
     '/*': 'example.notFoundLoaded',
   }, {
     onlyHash: true,
   }),
-  // Can pass any default options which
-  // will be used on all requests
-  http: Http({
-    // baseUrl: '/api'
-  }),
+  http: Http(),
 });
 
 export default controller;

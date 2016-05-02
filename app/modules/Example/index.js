@@ -2,8 +2,6 @@ import React from 'react';
 import homepageLoaded from './signals/homepageLoaded';
 import redirectHome from './signals/redirectHome';
 import notFoundLoaded from './signals/notFoundLoaded';
-import dialogOpenRequested from './signals/dialogOpenRequested';
-import dialogCloseRequested from './signals/dialogCloseRequested';
 import httpGetRequested from './signals/httpGetRequested';
 import phoneItemSelected from './signals/phoneItemSelected';
 import backToListClicked from './signals/backToListClicked';
@@ -22,8 +20,6 @@ export default (_options = {}) => {
       homepageLoaded,
       redirectHome,
       notFoundLoaded,
-      dialogOpenRequested,
-      dialogCloseRequested,
       httpGetRequested,
       phoneItemSelected,
       backToListClicked,

@@ -12,26 +12,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import PhoneList from '../PhoneList';
 import PhoneDetail from '../PhoneDetail';
-
-const styles = {
-  center: {
-    textAlign: 'center',
-  },
-  buttonMargin: {
-    margin: 20,
-  },
-  listLeft: {
-    width: '50%',
-    display: 'inline-block',
-    verticalAlign: 'top',
-  },
-  detailsRight: {
-    width: '50%',
-    display: 'inline-block',
-    verticalAlign: 'top',
-  },
-};
-
+import {PHONE_LIST} from '../../constants.js';
 const muiTheme = getMuiTheme({
   palette: {
     accent1Color: deepOrange500,
@@ -56,7 +37,7 @@ class Home extends React.Component {
   }
 
   renderLeftIcon(props) {
-    if (props.pageTitle === 'Phone List') {
+    if (props.pageTitle === PHONE_LIST) {
       return null;
     }
     return (
@@ -69,14 +50,14 @@ class Home extends React.Component {
   }
 
   renderList(props) {
-    if (props.pageTitle === 'Phone List') {
+    if (props.pageTitle === PHONE_LIST) {
       return <PhoneList />;
     }
     return null;
   }
 
   renderDetail(props) {
-    if (props.pageTitle !== 'Phone List') {
+    if (props.pageTitle !== PHONE_LIST) {
       return <PhoneDetail />;
     }
     return null;
@@ -85,7 +66,7 @@ class Home extends React.Component {
   render() {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
-        <div style={styles.container}>
+        <div>
           <AppBar
             title={this.props.pageTitle}
             iconElementLeft={this.renderLeftIcon(this.props)}

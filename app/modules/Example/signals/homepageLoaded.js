@@ -1,9 +1,8 @@
-function setHomepage({state}) {
-  state.set(['example', 'pageName'], 'home');
-}
+import {PHONE_LIST} from '../constants.js';
+
 function setHomepageContent({state}) {
   state.set(['example', 'openDialog'], false);
-  state.set(['example', 'pageTitle'], 'Phone List');
+  state.set(['example', 'pageTitle'], PHONE_LIST);
 }
 function getData({output, services}) {
   services.http.get('http://jsonplaceholder.typicode.com/users')
@@ -22,7 +21,6 @@ function setData({input, state}) {
 }
 
 const homepageLoaded = [
-  setHomepage,
   setHomepageContent,
   [
     getData,

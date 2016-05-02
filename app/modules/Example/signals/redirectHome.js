@@ -1,7 +1,7 @@
 import {redirect} from 'cerebral-module-router';
 
 const redirectHome = [
-  redirect('/pages/home'),
+  redirect('/phone-list'),
 ];
 
 export default redirectHome;
