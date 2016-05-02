@@ -13,7 +13,7 @@ controller.addModules({
   router: Router({
     '/': 'example.redirectHome',
     '/phone-list': 'example.homepageLoaded',
-    '/login': 'example.loginLoaded',
+    '/login': 'example.logInLoaded',
     '/signIn': 'example.signInLoaded',
     '/*': 'example.notFoundLoaded',
   }, {

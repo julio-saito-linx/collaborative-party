@@ -4,8 +4,8 @@ function setPage({state}) {
   state.set(['example', 'pageTitle'], LOG_IN);
 }
 
-const loginLoaded = [
+const logInLoaded = [
   setPage,
 ];
 
-export default loginLoaded;
+export default logInLoaded;

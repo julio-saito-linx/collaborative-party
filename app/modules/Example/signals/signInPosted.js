@@ -1,28 +1,32 @@
-function postNewUser({output, services}) {
+import {redirect} from 'cerebral-module-router';
+
+function postNewUser({state, output, services}) {
   services.http.post('http://rethink-server.dev.azk.io/users', {
-    name: 'Julio Saito',
-    email: 'saitodisse@gmail.com',
-    password: '123',
+    name: state.get('example.signInUser.name'),
+    email: state.get('example.signInUser.email'),
+    password: state.get('example.signInUser.password'),
   })
   .then(output.success)
   .catch(output.error);
 }
 
-function showResult({input, state}) {
-  // convert array to object
-  // const objectWithItens = input.result.reduce((prev, curr) => {
-  //   // object key is the user ID
-  //   prev[`${curr.id}`] = curr;
-  //   return prev;
-  // }, {});
-  // state.set(['example', 'usersList'], objectWithItens);
+function clearSignInUser({state}) {
+  state.set(['example', 'signInUser'], null);
+}
+
+function saveToken({input, state}) {
+  state.set(['example', 'userToken'], input.result.generated_keys[0]);
 }
 
 const signInPosted = [
   [
     postNewUser,
     {
-      success: [showResult]
+      success: [
+        saveToken,
+        clearSignInUser,
+        redirect('/phone-list'),
+      ],
     }
   ],
 ];

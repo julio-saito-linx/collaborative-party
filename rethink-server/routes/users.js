@@ -24,6 +24,7 @@ router.get('/:id', auth.authorize, (request, response, next) => {
 });
 
 router.post('/', (request, response) => {
+  /**/console.log('request.body:', request.body);/* -debug- */
   auth.hash_password(request.body.password)
   .then((hash) => {
     const newUser = {

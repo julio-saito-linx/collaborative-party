@@ -3,6 +3,7 @@ import {Decorator as Cerebral} from 'cerebral-view-react';
 
 import {
   TextField,
+  RaisedButton,
 } from 'material-ui';
 
 //
@@ -57,6 +58,10 @@ class SignIn extends React.Component {
             value: event.target.value,
           })}
         /><br/>
+        <RaisedButton
+          label="Sign In"
+          onClick={_ => this.props.signals.example.signInPosted()}
+        />
       </div>
     );
   }

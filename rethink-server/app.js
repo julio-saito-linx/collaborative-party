@@ -3,8 +3,6 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
-require('dotenv').load();
-
 const users = require('./routes/users');
 const login = require('./routes/login');
 

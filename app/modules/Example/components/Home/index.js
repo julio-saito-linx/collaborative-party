@@ -59,17 +59,14 @@ class Home extends React.Component {
   }
 
   renderBody(props) {
-    if (props.pageTitle === PHONE_LIST) {
-      return <PhoneList />;
-    }
-    if (props.pageTitle === PHONE_DETAIL) {
-      return <PhoneDetail />;
-    }
     if (props.pageTitle === SIGN_IN) {
       return <SignIn />;
-    }
-    if (props.pageTitle === LOG_IN) {
+    } else if (props.pageTitle === LOG_IN) {
       return <LogIn />;
+    } else if (props.pageTitle === PHONE_DETAIL) {
+      return <PhoneDetail />;
+    } else if (props.pageTitle === PHONE_LIST) {
+      return <PhoneList />;
     }
     return null;
   }

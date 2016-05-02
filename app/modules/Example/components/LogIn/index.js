@@ -3,16 +3,18 @@ import {Decorator as Cerebral} from 'cerebral-view-react';
 
 import {
   TextField,
+  RaisedButton,
 } from 'material-ui';
 
 //
 // component
 //
 @Cerebral({
-  user: ['example', 'selectedUser'],
+  logInError: ['example', 'logInUser', 'loginError'],
 })
 class LogIn extends React.Component {
   static propTypes = {
+    logInError: PropTypes.string,
     signals: PropTypes.object,
   };
 
@@ -20,9 +22,31 @@ class LogIn extends React.Component {
     return (
       <div>
         <TextField
-          hintText="Name"
-          errorText="This field is required"
+          hintText="Email"
+          floatingLabelText="Email"
+          // errorText="This field is required"
+          onChange={event => this.props.signals.example.logInUserChanged({
+            fieldName: 'email',
+            value: event.target.value,
+          })}
         /><br/>
+        <TextField
+          hintText="Password"
+          floatingLabelText="Password"
+          type="password"
+          // errorText="This field is required"
+          onChange={event => this.props.signals.example.logInUserChanged({
+            fieldName: 'password',
+            value: event.target.value,
+          })}
+        /><br/>
+        <span style={{color: 'red'}}>
+          {this.props.logInError}
+        </span><br/>
+        <RaisedButton
+          label="Sign In"
+          onClick={_ => this.props.signals.example.logInPosted()}
+        />
       </div>
     );
   }
