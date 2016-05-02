@@ -41,7 +41,8 @@
     "randomcolor": "^0.4.4",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
-    "react-tap-event-plugin": "^1.0.0"
+    "react-tap-event-plugin": "^1.0.0",
+    "rethinkdbdash": "^2.3.5"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",

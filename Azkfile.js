@@ -2,33 +2,6 @@
 /* eslint camelcase: [2, {properties: "never"}] */
 /* eslint comma-dangle: [0, {properties: "never"}] */
 systems({
-  'collaborative-party': {
-    depends: ['rethink-db'],
-    image: {'docker': 'node'},
-    provision: [
-      'npm install',
-    ],
-    workdir: '/azk/#{manifest.dir}',
-    shell: '/bin/bash',
-    command: ['npm', 'start'],
-    wait: 20,
-    mounts: {
-      '/azk/#{manifest.dir}': sync('.'),
-      '/azk/#{manifest.dir}/node_modules': persistent('./node_modules'),
-    },
-    scalable: {'default': 1},
-    http: {
-      domains: [ '#{system.name}.#{azk.default_domain}' ]
-    },
-    ports: {
-      http: '3000/tcp',
-    },
-    envs: {
-      NODE_ENV: 'dev',
-      PORT: '3000',
-    },
-  },
-
   /////////////////////////////////////////////////
   /// rethink-db
   /// ----------
@@ -72,4 +45,62 @@ systems({
       APP_URL: '#{azk.default_domain}:#{net.port.http}'
     }
   },
+
+  'express-rethink': {
+    depends: ['rethink-db'],
+    image: {'docker': 'node'},
+    provision: [
+      'npm install',
+    ],
+    workdir: '/azk/#{manifest.dir}/#{system.name}',
+    shell: '/bin/bash',
+    command: ['npm', 'start'],
+    wait: 20,
+    mounts: {
+      '/azk/#{manifest.dir}/#{system.name}': sync('#{system.name}/.'),
+      '/azk/#{manifest.dir}/#{system.name}/node_modules': persistent('./#{system.name}_node_modules'),
+    },
+    scalable: {'default': 1},
+    http: {
+      domains: [ '#{system.name}.#{azk.default_domain}' ]
+    },
+    ports: {
+      http: '3000/tcp',
+    },
+    envs: {
+      NODE_ENV: 'dev',
+      PORT: '3000',
+    },
+  },
+
+  // FIXME: eslint stop working
+  //        I don't want to install globally
+  //        Running locally
+  // 'collaborative-party': {
+  //   depends: ['rethink-db'],
+  //   image: {'docker': 'node'},
+  //   provision: [
+  //     'npm install',
+  //   ],
+  //   workdir: '/azk/#{manifest.dir}',
+  //   shell: '/bin/bash',
+  //   command: ['npm', 'start'],
+  //   wait: 20,
+  //   mounts: {
+  //     '/azk/#{manifest.dir}': sync('.'),
+  //     '/azk/#{manifest.dir}/node_modules': persistent('./node_modules'),
+  //   },
+  //   scalable: {'default': 1},
+  //   http: {
+  //     domains: [ '#{system.name}.#{azk.default_domain}' ]
+  //   },
+  //   ports: {
+  //     http: '3000/tcp',
+  //   },
+  //   envs: {
+  //     NODE_ENV: 'dev',
+  //     PORT: '3000',
+  //   },
+  // },
+
 });
