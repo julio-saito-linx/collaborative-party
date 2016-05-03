@@ -26,6 +26,10 @@ const styles = {
   bold: {
     fontWeight: 'bold',
   },
+  name: {
+    fontSize: 22,
+    fontWeight: 'bold',
+  },
 };
 
 
@@ -46,6 +50,11 @@ class PhoneDetail extends React.Component {
       return (
         [
           <ListItem
+            key={0}
+            style={styles.name}
+            primaryText={props.user.name}
+          />,
+          <ListItem
             key={1}
             leftIcon={<CommunicationCall />}
             style={styles.bold}
@@ -57,12 +66,12 @@ class PhoneDetail extends React.Component {
             primaryText={props.user.email.toLowerCase()}
           />,
           <ListItem
-            key={0}
+            key={3}
             leftIcon={<ActionAccountBox />}
             primaryText={'@' + props.user.username.toLowerCase()}
           />,
           <ListItem
-            key={3}
+            key={4}
             leftIcon={<ActionWork />}
             primaryText={props.user.company && props.user.company.name}
           />,
