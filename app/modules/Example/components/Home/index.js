@@ -34,14 +34,14 @@ const muiTheme = getMuiTheme({
 @Cerebral({
   openDialog: ['example', 'openDialog'],
   pageTitle: ['example', 'pageTitle'],
-  selectedUser: ['example', 'selectedUser'],
+  selectedPhoneItem: ['example', 'selectedPhoneItem'],
   leftMenuButtonBack: ['example', 'leftMenuButtonBack'],
 })
 class Home extends React.Component {
   static propTypes = {
     openDialog: PropTypes.bool,
     pageTitle: PropTypes.string,
-    selectedUser: PropTypes.object,
+    selectedPhoneItem: PropTypes.object,
     leftMenuButtonBack: PropTypes.bool,
     signals: PropTypes.object,
   };

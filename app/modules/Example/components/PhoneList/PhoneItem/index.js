@@ -9,14 +9,14 @@ const styles = {
 };
 
 @Cerebral({
-  selectedId: ['example', 'selectedUser', 'id']
+  selectedPhoneId: ['example', 'selectedPhoneItem', 'id']
 })
 class PhoneItem extends React.Component {
   static propTypes = {
     id: PropTypes.number,
     username: PropTypes.string,
     name: PropTypes.string,
-    selectedId: PropTypes.number,
+    selectedPhoneId: PropTypes.number,
     signals: PropTypes.object,
   };
 
@@ -30,7 +30,7 @@ class PhoneItem extends React.Component {
   }
 
   isSelected() {
-    return this.props.selectedId === this.props.id;
+    return this.props.selectedPhoneId === this.props.id;
   }
 
   getSelectedStyle() {

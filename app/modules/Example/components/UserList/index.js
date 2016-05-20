@@ -5,20 +5,20 @@ import UserItem from './UserItem';
 import _ from 'lodash';
 
 @Cerebral({
-  usersList: ['example', 'usersList']
+  phoneList: ['example', 'phoneList']
 })
 class UserList extends React.Component {
   static propTypes = {
-    usersList: PropTypes.object,
+    phoneList: PropTypes.object,
     signals: PropTypes.object,
   };
 
   renderItens() {
-    if (!this.props.usersList) {
+    if (!this.props.phoneList) {
       return null;
     }
 
-    return _.map(this.props.usersList, (user) => (
+    return _.map(this.props.phoneList, (user) => (
       <UserItem
         key={user.id}
         id={user.id}

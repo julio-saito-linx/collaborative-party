@@ -37,7 +37,7 @@ const styles = {
 // component
 //
 @Cerebral({
-  user: ['example', 'selectedUser'],
+  user: ['example', 'selectedPhoneItem'],
 })
 class PhoneDetail extends React.Component {
   static propTypes = {

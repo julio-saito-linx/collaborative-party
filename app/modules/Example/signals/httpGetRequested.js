@@ -11,7 +11,7 @@ function setData({input, state}) {
     prev[`${curr.id}`] = curr;
     return prev;
   }, {});
-  state.set(['example', 'usersList'], objectWithItens);
+  state.set(['example', 'phoneList'], objectWithItens);
 }
 
 const httpGetRequested = [

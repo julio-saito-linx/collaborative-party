@@ -2,8 +2,10 @@ import {redirect} from 'cerebral-module-router';
 
 function postLogin({output, state, services}) {
   services.http.post('http://rethink-server.dev.azk.io/login', {
-    email: state.get('example.logInUser.email'),
-    password: state.get('example.logInUser.password'),
+    email: 'saitodisse@gmail.com',
+    password: '123',
+    // email: state.get('example.logInUser.email'),
+    // password: state.get('example.logInUser.password'),
   })
   .then(output.success)
   .catch(output.error);
@@ -30,7 +32,7 @@ const logInPosted = [
       success: [
         clearLogInPassword,
         saveToken,
-        redirect('/phone-list'),
+        redirect('/users'),
       ],
       error: [
         setError,

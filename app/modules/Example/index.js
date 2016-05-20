@@ -14,14 +14,17 @@ import logInUserChanged from './signals/logInUserChanged';
 import logInPosted from './signals/logInPosted';
 import redirectTo from './signals/redirectTo';
 
+import usersListLoaded from './signals/usersListLoaded';
+
 export default (_options = {}) => {
   return (module, _controller) => {
     module.addState({
       openDialog: false,
       pageTitle: '',
+      phoneList: {},
       usersList: {},
-      selectedId: null,
-      selectedUser: null,
+      selectedPhoneId: null,
+      selectedPhoneItem: null,
       leftMenuButtonBack: false,
     });
 
@@ -41,6 +44,8 @@ export default (_options = {}) => {
       logInPosted,
 
       redirectTo,
+
+      usersListLoaded,
     });
   };
 };

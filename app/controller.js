@@ -15,6 +15,7 @@ controller.addModules({
     '/phone-list': 'example.homepageLoaded',
     '/login': 'example.logInLoaded',
     '/signIn': 'example.signInLoaded',
+    '/users': 'example.usersListLoaded',
     '/*': 'example.notFoundLoaded',
   }, {
     onlyHash: true,

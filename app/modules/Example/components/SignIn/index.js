@@ -10,7 +10,7 @@ import {
 // component
 //
 @Cerebral({
-  user: ['example', 'selectedUser'],
+  user: ['example', 'selectedPhoneItem'],
 })
 class SignIn extends React.Component {
   static propTypes = {

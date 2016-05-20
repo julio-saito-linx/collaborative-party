@@ -1,14 +1,18 @@
-import {PHONE_LIST} from '../constants.js';
+import {USERS_LIST} from '../constants.js';
 
 function setHomepageContent({state}) {
   state.set(['example', 'openDialog'], false);
-  state.set(['example', 'pageTitle'], PHONE_LIST);
+  state.set(['example', 'pageTitle'], USERS_LIST);
   state.set(['example', 'leftMenuButtonBack'], false);
 }
-function getData({output, services}) {
-  services.http.get('http://jsonplaceholder.typicode.com/users')
-    .then(output.success)
-    .catch(output.error);
+function getData({output, state, services}) {
+  services.http.get('http://rethink-server.dev.azk.io/users/', {
+    headers: {
+      'x-api-token': state.get('example.signInUser.userToken')
+    }
+  })
+  .then(output.success)
+  .catch(output.error);
 }
 
 function setData({input, state}) {
@@ -21,7 +25,7 @@ function setData({input, state}) {
   state.set(['example', 'phoneList'], objectWithItens);
 }
 
-const homepageLoaded = [
+const phoneListLoaded = [
   setHomepageContent,
   [
     getData,
@@ -31,4 +35,4 @@ const homepageLoaded = [
   ],
 ];
 
-export default homepageLoaded;
+export default phoneListLoaded;
