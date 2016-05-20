@@ -1,20 +1,22 @@
 /* globals systems path sync persistent */
-/* eslint camelcase: [2, {properties: "never"}] */
-/* eslint comma-dangle: [0, {properties: "never"}] */
+/* eslint camelcase: 2 */
+/* eslint comma-dangle: 0 */
 systems({
-  /////////////////////////////////////////////////
-  /// rethink-db
-  /// ----------
-  /// RethinkDB is the open-source, scalable database that
-  /// makes building realtime apps dramatically easier.
-  ///
-  /// RethinkDB provides a web interface which lets you manage your entire server
-  /// cluster, from controlling sharding and replication to running ReQL queries (in
-  /// JavaScript), with editing and history support. In addition, you can perform
-  /// administration tasks using scriptable ReQL commands.
-  ///
-  /// http://rethinkdb.com/
-  /////////////////////////////////////////////////
+
+  // //////////////////////////////////////////////
+  //  rethink-db
+  //  ----------
+  //  RethinkDB is the open-source, scalable database that
+  //  makes building realtime apps dramatically easier.
+  //
+  //  RethinkDB provides a web interface which lets you manage your entire server
+  //  cluster, from controlling sharding and replication to running ReQL queries (in
+  //  JavaScript), with editing and history support. In addition, you can perform
+  //  administration tasks using scriptable ReQL commands.
+  //
+  //  http://rethinkdb.com/
+  // //////////////////////////////////////////////
+
   'rethink-db': {
     // https://registry.hub.docker.com/u/library/rethink-db/
     image: {'docker': 'rethinkdb'},

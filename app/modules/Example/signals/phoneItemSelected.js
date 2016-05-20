@@ -5,6 +5,7 @@ function setSelectedUser({input, state}) {
   const fullUser = state.get(`example.usersList.${input.user.id}`);
   state.set(['example', 'selectedUser'], fullUser);
   state.set(['example', 'pageTitle'], PHONE_DETAIL);
+  state.set(['example', 'leftMenuButtonBack'], true);
 }
 
 const phoneItemSelected = [

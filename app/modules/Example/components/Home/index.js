@@ -3,8 +3,11 @@ import {Decorator as Cerebral} from 'cerebral-view-react';
 import {
   AppBar,
   IconButton,
+  IconMenu,
+  MenuItem,
 } from 'material-ui';
 import {
+  NavigationMoreVert,
   NavigationArrowBack,
 } from 'material-ui/svg-icons';
 import {deepOrange500} from 'material-ui/styles/colors';
@@ -32,12 +35,14 @@ const muiTheme = getMuiTheme({
   openDialog: ['example', 'openDialog'],
   pageTitle: ['example', 'pageTitle'],
   selectedUser: ['example', 'selectedUser'],
+  leftMenuButtonBack: ['example', 'leftMenuButtonBack'],
 })
 class Home extends React.Component {
   static propTypes = {
     openDialog: PropTypes.bool,
     pageTitle: PropTypes.string,
     selectedUser: PropTypes.object,
+    leftMenuButtonBack: PropTypes.bool,
     signals: PropTypes.object,
   };
 
@@ -46,15 +51,37 @@ class Home extends React.Component {
   }
 
   renderLeftIcon(props) {
-    if (props.pageTitle === PHONE_LIST) {
-      return null;
+    if (props.leftMenuButtonBack) {
+      // render back button
+      return (
+        <IconButton
+          onClick={_ => this.props.signals.example.redirectTo({page: '/phone-list'})}
+        >
+          <NavigationArrowBack />
+        </IconButton>
+      );
     }
+
+    // render menu
     return (
-      <IconButton
-        onClick={_ => this.props.signals.example.backToListClicked()}
+      <IconMenu
+        iconButtonElement={<IconButton><NavigationMoreVert /></IconButton>}
+        anchorOrigin={{horizontal: 'left', vertical: 'top'}}
+        targetOrigin={{horizontal: 'left', vertical: 'top'}}
       >
-        <NavigationArrowBack />
-      </IconButton>
+        <MenuItem
+          primaryText="Sign"
+          onClick={_ => this.props.signals.example.redirectTo({page: '/signIn'})}
+        />
+        <MenuItem
+          primaryText="Login"
+          onClick={_ => this.props.signals.example.redirectTo({page: '/login'})}
+        />
+        <MenuItem
+          primaryText="PhoneList"
+          onClick={_ => this.props.signals.example.redirectTo({page: '/phone-list'})}
+        />
+      </IconMenu>
     );
   }
 

@@ -4,7 +4,6 @@ import redirectHome from './signals/redirectHome';
 import notFoundLoaded from './signals/notFoundLoaded';
 import httpGetRequested from './signals/httpGetRequested';
 import phoneItemSelected from './signals/phoneItemSelected';
-import backToListClicked from './signals/backToListClicked';
 
 import signInLoaded from './signals/signInLoaded';
 import signInUserChanged from './signals/signInUserChanged';
@@ -13,6 +12,7 @@ import signInPosted from './signals/signInPosted';
 import logInLoaded from './signals/logInLoaded';
 import logInUserChanged from './signals/logInUserChanged';
 import logInPosted from './signals/logInPosted';
+import redirectTo from './signals/redirectTo';
 
 export default (_options = {}) => {
   return (module, _controller) => {
@@ -22,6 +22,7 @@ export default (_options = {}) => {
       usersList: {},
       selectedId: null,
       selectedUser: null,
+      leftMenuButtonBack: false,
     });
 
     module.addSignals({
@@ -30,7 +31,6 @@ export default (_options = {}) => {
       notFoundLoaded,
       httpGetRequested,
       phoneItemSelected,
-      backToListClicked,
 
       signInLoaded,
       signInUserChanged,
@@ -39,6 +39,8 @@ export default (_options = {}) => {
       logInLoaded,
       logInUserChanged,
       logInPosted,
+
+      redirectTo,
     });
   };
 };

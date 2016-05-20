@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "baobab": "^2.3.3",
-    "cerebral": "^0.33.24",
+    "cerebral": "^0.34.0",
     "cerebral-addons": "^0.5.3",
     "cerebral-model-baobab": "^0.4.7",
     "cerebral-module-devtools": "^0.6.4",
@@ -59,9 +59,10 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "kotatsu": "^0.13.0",
+    "npm-check-updates": "^2.6.5",
     "stats-webpack-plugin": "^0.3.1",
     "style-loader": "^0.13.1",
-    "surge": "^0.17.7",
+    "surge": "^0.18.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.0"
   }
